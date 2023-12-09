@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using FPT_BOOKMVC.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Data
@@ -9,5 +10,6 @@ namespace FPT_BOOKMVC.Data
             : base(options)
         {
         }
+        public DbSet<Category> Categories { get; set; }   
     }
 }
