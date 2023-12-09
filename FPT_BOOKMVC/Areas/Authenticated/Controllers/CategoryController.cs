@@ -6,9 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
+    //area
+
     public class CategoryController : Controller
     {
-       
+           
             private readonly ApplicationDbContext context;
 
             public CategoryController(ApplicationDbContext context)
@@ -38,8 +40,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 {
                     Name = CategoryModel.Name,
                     Description = CategoryModel.Description
-
-
                 };
 
                 await context.Categories.AddAsync(category);

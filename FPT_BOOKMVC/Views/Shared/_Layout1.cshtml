@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/FPT_BOOKMVC.styles.css" asp-append-version="true" />
-	<link rel="icon" type="image/png" href="Images/R (1)iconsach.png" asp-append-version="true" />
+	<link rel="icon" type="image/png" href="~/Images/icons/favicon.png" asp-append-version="true" />
 	<link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css" asp-append-version="true">
@@ -30,7 +30,17 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						WELCOM TO FPT BOOKS
+						WELCOM ADMIN TO FPT BOOKS
+					</div>
+
+					<div class="right-top-bar flex-w h-full">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
+							Help & FAQs
+						</a>
+
+						<a asp-area="Authenticated" asp-controller="User" asp-action="ProfileUser" class="flex-c-m trans-04 p-lr-25">
+							My Account
+						</a>
 					</div>
 				</div>
 			</div>
@@ -48,7 +58,23 @@
 						<ul class="main-menu">
 							<li>
 								<a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">FPT BOOOKS</a>
+
 							</li>
+							<li class="">
+								<a asp-area="Authenticated" asp-controller="User" asp-action="GetCustomers">CustomerAccount</a>
+
+							</li>
+							<li class="">
+								<a asp-area="Authenticated" asp-controller="User" asp-action="GetStoreOwners">StoreOwnerAccount</a>
+
+							</li>
+
+							<li class="">
+								<a asp-area="Authenticated" asp-controller="Category" asp-action="CategoryApproved">CategryApproved</a>
+
+							</li>
+
+
 						</ul>
 					</div>
 
@@ -91,7 +117,6 @@
 			</div>
 		</div>
 	</header>
-
 	<div class="container">
 		<main role="main" class="pb-3 p-t-135">
 			@RenderBody()
@@ -115,6 +140,97 @@
 		})
 	</script>
 	<!--===============================================================================================-->
+	<script src="~/vendor/daterangepicker/moment.min.js" asp-append-version="true"></script>
+	<script src="~/vendor/daterangepicker/daterangepicker.js" asp-append-version="true"></script>
+	<!--===============================================================================================-->
+	<script src="~/vendor/slick/slick.min.js" asp-append-version="true"></script>
+	<script src="~/js/slick-custom.js" asp-append-version="true"></script>
+	<!--===============================================================================================-->
+	<script src="~/vendor/parallax100/parallax100.js" asp-append-version="true"></script>
+	<script asp-append-version="true">
+		$('.parallax100').parallax100();
+	</script>
+	<!--===============================================================================================-->
+	<script src="~/vendor/MagnificPopup/jquery.magnific-popup.min.js" asp-append-version="true"></script>
+	<script asp-append-version="true">
+		$('.gallery-lb').each(function () { // the containers for all your galleries
+			$(this).magnificPopup({
+				delegate: 'a', // the selector for gallery item
+				type: 'image',
+				gallery: {
+					enabled: true
+				},
+				mainClass: 'mfp-fade'
+			});
+		});
+	</script>
+	<script src="~/vendor/isotope/isotope.pkgd.min.js" asp-append-version="true"></script>
+	<script src="~/vendor/sweetalert/sweetalert.min.js" asp-append-version="true"></script>
+	<script asp-append-version="true">
+		$('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function () {
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+
+		$('.js-addcart-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+
+		$('.js-order-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().parent().html();
+			$(this).on('click', function () {
+				swal("Successfully!", "You will receive your order after 4 days!", "success");
+			});
+		});
+
+		$('.js-addcart-fail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().parent().html();
+			$(this).on('click', function () {
+				swal("Oops!", "This book has already been added to your cart ", "error");
+			});
+		});
+
+	</script>
+	<script src="~/vendor/perfect-scrollbar/perfect-scrollbar.min.js" asp-append-version="true"></script>
+	<script asp-append-version="true">
+		$('.js-pscroll').each(function () {
+			$(this).css('position', 'relative');
+			$(this).css('overflow', 'hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function () {
+				ps.update();
+			})
+		});
+	</script>
 	<script src="~/js/main.js" asp-append-version="true"></script>
 	<script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
