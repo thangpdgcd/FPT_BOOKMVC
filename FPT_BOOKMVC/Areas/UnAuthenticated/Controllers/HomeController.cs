@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace FPT_BOOKMVC.Controllers
+namespace FPT_BOOKMVC.Areas.UnAuthenticated.Controllers
 {
     public class HomeController : Controller
     {

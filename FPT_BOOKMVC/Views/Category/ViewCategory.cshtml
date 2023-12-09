@@ -1,0 +1,28 @@
+﻿@model FPT_BOOKMVC.ModelsCRUD.Category.UpdateCategoryView
+@{
+    Layout = "_Layout2";
+}
+
+<h1>View Category</h1>
+<form method="post" action="ViewCategory">
+    <div class="mb-3">
+        <label for="CategoryId" class="form-label">Category Id:</label>
+        <input type="text" class="form-control" id="CategoryId" asp-for="CategoryId" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="CategoryName" class="form-label">Category Name:</label>
+        <input type="text" class="form-control" id="CategoryName" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="CategoryDes" class="form-label">Category Description:</label>
+        <input type="text" class="form-control" id="CategoryDes" asp-for="Description">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-danger" asp-action="DeleteCategory" asp-controller="Category">Delete</button>
+    <a asp-controller="Category" asp-action="CategoryIndex" class="btn btn-primary">Back to List</a>
+</form>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
