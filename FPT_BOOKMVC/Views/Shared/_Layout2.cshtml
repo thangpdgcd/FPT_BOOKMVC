@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/FPT_BOOKMVC.styles.css" asp-append-version="true" />
-	<link rel="icon" type="image/png" href="~/Images/icons/favicon.png" asp-append-version="true" />
+	<link rel="icon" type="image/png" href="~/Images/icons/OIP (1).jpg" asp-append-version="true" />
 	<link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css" asp-append-version="true">
@@ -60,30 +60,32 @@
 								<a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">FPT BOOOKS</a>
 
 							</li>
-							<li class="">
-								<a asp-area="Authenticated" asp-controller="Book" asp-action="BookProduct">Shop</a>
+							<!-- sau khi xong moi phan quyen tung muc-->
+							 @*    @if (User.IsInRole("Admin"))
+							{ *@
+								<li class="">
+									<a asp-area="Authenticated" asp-controller="Book" asp-action="BookProduct">Shop</a>
 
-							</li>
-							<li class="">
-								<a asp-area="Authenticated" asp-controller="Order" asp-action="OrderIndex">Ordered</a>
+								</li>
+								<li class="">
+									<a asp-area="Authenticated" asp-controller="Order" asp-action="OrderIndex">Ordered</a>
 
-							</li>
+								</li>
 
-							<li class="">
-								<a asp-area="Authenticated" asp-controller="Category" asp-action="CategoryIndex">Category</a>
+								<li class="">
+									<a asp-area="UnAuthenticated" asp-controller="Category" asp-action="CategoryIndex">Category</a>
 
-							</li>
+								</li>
 
-							<li class="">
-								<a asp-area="Authenticated" asp-controller="PublishCompany" asp-action="CompanyIndex">Publishing Company</a>
+								<li class="">
+									<a asp-area="Authenticated" asp-controller="PublishCompany" asp-action="CompanyIndex">Publishing Company</a>
 
-							</li>
-							<li class="">
-								<a asp-area="Authenticated" asp-controller="Book" asp-action="BookIndex">Book</a>
+								</li>
+								<li class="">
+									<a asp-area="Authenticated" asp-controller="Book" asp-action="BookIndex">Book</a>
 
-							</li>
-
-
+								</li>
+							@* } *@
 
 						</ul>
 					</div>
