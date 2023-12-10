@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace FPT_BOOKMVC.Models
+namespace FPT_BOOKMVC.ModelsCRUD.Book
 {
-    public class Book
+    public class AddBookViewModel
     {
-        [Key]
-        public int BookId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -26,10 +24,11 @@ namespace FPT_BOOKMVC.Models
         [Required]
         public int PublishCompanyId { get; set; }
 
+
         [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
+        public Models.Category Category { get; set; }
         [ForeignKey("PublishCompanyId")]
-        public PushlishCompany PublishCompany { get; set; }
+        public Models.PushlishCompany PublishCompany { get; set; }
 
         [Required(ErrorMessage = "Please choose Front image")]
         [Display(Name = "Front Image")]

@@ -1,0 +1,53 @@
+﻿@model FPT_BOOKMVC.ModelsCRUD.Book.UpdateBookView
+@{
+    Layout = "_Layout2";
+}
+
+<h1>Edit Book</h1>
+<form method="post" action="ViewBook" enctype="multipart/form-data">
+    <input type="hidden" asp-for="BookId" />
+    <div class="mb-3">
+        <label for="BookId" class="form-label">Book Id:</label>
+        <input type="text" class="form-control" id="BookId" asp-for="BookId" readonly>
+    </div>
+    <div class="mb-3">
+        <label for="BookName" class="form-label">Book Name:</label>
+        <input type="text" class="form-control" id="BookName" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="BookQuantity" class="form-label">Book Quantity:</label>
+        <input type="text" class="form-control" id="BookQuantity" asp-for="Quantity">
+    </div>
+    <div class="mb-3">
+        <label for="BookPrice" class="form-label">Book Price:</label>
+        <input type="text" class="form-control" id="BookPrice" asp-for="Price">
+    </div>
+    <div class="mb-3">
+        <label for="BookDes" class="form-label">Book Description:</label>
+        <input type="text" class="form-control" id="BookDes" asp-for="Description">
+    </div>
+    <div class="mb-3">
+        <label for="BookUpdateDates" class="form-label">Date Updated:</label>
+        <input type="date" class="form-control" id="BookUpdateDates" asp-for="UpdateDate">
+    </div>
+    <div class="mb-3">
+        <label for="BookAuthor" class="form-label">Book Author:</label>
+        <input type="text" class="form-control" id="BookAuthor" asp-for="Author">
+    </div>
+    <div class="mb-3">
+        <label for="BookImg" class="form-label">Book Image:</label>
+        <input type="file" asp-for="FronImage" value="~/Images/@Model.Image" src="~/Images/@Model.Image" class="form-control" id="BookImg" onchange="document.getElementById('FrontImagePrv').src = window.URL.createObjectURL(this.files[0])" />
+        <img id="FrontImagePrv" src="~/Images/@Model.Image" width="150" height="150" style="border:1px; margin-top:20px; margin-left:120px" />
+        <input type="text" class="form-control" id="BookImg" style="display:none">
+    </div>
+    <div class="mb-3">
+        <label for="BookCategoryId" class="form-label">CategoryId :</label>
+        @Html.DropDownListFor(model => model.CategoryId, (SelectList)ViewBag.Category_id, new { @class = "form-control" })
+    </div>
+    <div class="mb-3">
+        <label for="BookPublishId" class="form-label">PublishId:</label>
+        @Html.DropDownListFor(model => model.PublishCompanyId, (SelectList)ViewBag.Company_id, new { @class = "form-control" })
+    </div>
+    <button type="submit" asp-controller="Book" asp-action="ViewBook" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-danger" asp-action="DeleteBook" asp-controller="Book">Delete</button>
+</form>

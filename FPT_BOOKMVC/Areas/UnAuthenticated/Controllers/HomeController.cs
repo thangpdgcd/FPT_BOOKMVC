@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace FPT_BOOKMVC.Areas.UnAuthenticated.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
