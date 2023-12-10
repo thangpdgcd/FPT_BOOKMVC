@@ -1,12 +1,12 @@
 ﻿using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.Models;
-using FPT_BOOKMVC.ModelsCRUD.ModelsCRUD;
+using FPT_BOOKMVC.ModelsCRUD.PushlishCompany;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-	public class PushlishCompanyController : Controller
+    public class PushlishCompanyController : Controller
 	{
 			private readonly ApplicationDbContext context;
 
