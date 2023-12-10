@@ -11,5 +11,6 @@ namespace FPT_BOOKMVC.Data
         {
         }
         public DbSet<Category> Categories { get; set; }   
+        public DbSet<PushlishCompany> PushlishCompanies { get; set; }
     }
 }
