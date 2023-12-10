@@ -10,7 +10,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
     public class CategoryController : Controller
     {
-           
             private readonly ApplicationDbContext context;
 
             public CategoryController(ApplicationDbContext context)
@@ -20,8 +19,9 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             [HttpGet]
             public async Task<IActionResult> CategoryIndex()
             {
-                var category = await context.Categories.Where(x => x.IsApproved).ToListAsync();
-                return View(category);
+                var category = await context.Categories.Where(x => x.IsApproved).ToListAsync();/*Phương thức này được
+                                                                                                * gọi để chuyển đổi kết quả của truy vấn thành một danh sách (List)*/
+            return View(category);
             }
             public async Task<IActionResult> CategoryApproved()
             {
@@ -34,7 +34,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             {
                 return View();
             }
-            [HttpPost]/*ữ liệu từ máy khách (client) lên máy chủ (server) để xử lý. */
+            [HttpPost]/*dữ liệu từ máy khách (client) lên máy chủ (server) để xử lý. */
 		public async Task<IActionResult> CreateCategory(AddCategoryViewModel CategoryModel)
             {
                 var category = new Category()
@@ -61,7 +61,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                         Description = category.Description
                     };
 
-                    return await Task.Run(() => View("ViewCategory", viewmodel));
+                    return await Task.Run(() => View("ViewCategory", viewmodel));/*truyền đối tượng viewmodel*/
                 }
 
                 return RedirectToAction("CategoryIndex");
@@ -83,14 +83,13 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 return RedirectToAction("CategoryIndex");
             }
             [HttpPost]
-            public async Task<IActionResult> DeleteCategory(UpdateCategoryView model)
+            public async Task<IActionResult> DeleteCategory(UpdateCategoryView model)/*tham số*/
             {
                 var category = await context.Categories.FindAsync(model.CategoryId);
 
                 if (category != null)
                 {
                     context.Categories.Remove(category);
-
 
                     await context.SaveChangesAsync();
 
