@@ -1,0 +1,41 @@
+﻿@model List<FPT_BOOKMVC.Models.Book>;
+@{
+	Layout = "_Layout2";
+}
+
+<h1>Book</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Book Name</th>
+			<th>Quantity</th>
+			<th>Price</th>
+			<th>Description</th>
+			<th>Updated Date</th>
+			<th>Author</th>
+			<th>Image</th>
+			<th>Category Name</th>
+			<th>PublishCompany Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var book in Model)
+		{
+			<tr>
+				<td>@book.BookId</td>
+				<td>@book.Name</td>
+				<td>@book.Quantity</td>
+				<td>@book.Price</td>
+				<td>@book.Description</td>
+				<td>@book.UpdateDate</td>
+				<td>@book.Author</td>
+				<td><img src="~/Images/@book.Image" style="width: 75px; height:75px;" /></td>
+				<td>@book.Category.Name</td>
+				<td>@book.PublishCompany.Name</td>
+				<td><a href="ViewBook/@book.BookId" class="btn btn-outline-success">View</a></td>
+			</tr>
+		}
+	</tbody>
+</table>
+<a href="CreateBook" class="btn btn-outline-primary">New Books</a>

@@ -33,11 +33,10 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 					Name = CompanyModel.Name,
 					Adress = CompanyModel.Adress,
 				};
-
 				await context.PushlishCompanies.AddAsync(company);
 				await context.SaveChangesAsync();
 				return RedirectToAction("CompanyIndex");
-			}
+			} 
 			[HttpGet]
 			public async Task<IActionResult> ViewCompany(int id)
 			{
