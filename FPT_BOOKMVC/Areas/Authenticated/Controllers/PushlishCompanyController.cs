@@ -41,7 +41,11 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			[HttpGet]
 			public async Task<IActionResult> ViewCompany(int id)
 			{
-				var company = await context.PushlishCompanies.FirstOrDefaultAsync(x => x.PublishingCompanyId == id);
+			/**///để truy vấn công ty từ cơ sở dữ liệu dựa trên id được truyền vào.
+				//Phương thức FirstOrDefaultAsync trả về phần tử đầu tiên hoặc mặc định
+				//(null nếu không tìm thấy) theo điều kiện đưa ra.
+				
+			var company = await context.PushlishCompanies.FirstOrDefaultAsync(x => x.PublishingCompanyId == id);
 
 				if (company != null)
 				{
@@ -60,7 +64,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			[HttpPost]
 			public async Task<IActionResult> ViewCompany(UpdateCompany model)
 			{
-				var company = await context.PushlishCompanies.FindAsync(model.PublishingCompanyId);
+			//get id của sách lấy cacs attribute thuộc tính
+			var company = await context.PushlishCompanies.FindAsync(model.PublishingCompanyId);
 				if (company != null)
 				{
 					company.Name = model.Name;
