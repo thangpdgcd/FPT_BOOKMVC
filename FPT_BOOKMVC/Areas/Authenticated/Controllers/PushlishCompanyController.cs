@@ -8,13 +8,9 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
 	public class PushlishCompanyController : Controller
 	{
-		private readonly ApplicationDbContext context;
-
-		public class PublishCompanyController : Controller
-		{
 			private readonly ApplicationDbContext context;
 
-			public PublishCompanyController(ApplicationDbContext context)
+			public PushlishCompanyController(ApplicationDbContext context)
 			{
 				this.context = context;
 			}
@@ -36,7 +32,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 				{
 					Name = CompanyModel.Name,
 					Adress = CompanyModel.Adress,
-
 				};
 
 				await context.PushlishCompanies.AddAsync(company);
@@ -95,6 +90,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
 				return RedirectToAction("CompanyIndex");
 			}
-		}
+		
 	}
 }
