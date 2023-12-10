@@ -28,13 +28,14 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 var category = await context.Categories.ToListAsync();
                 return View(category);
             }
-            [HttpGet]
-            public IActionResult CreateCategory()
+            [HttpGet] /*gửi yêu cầu qua URL.*/
+
+			public IActionResult CreateCategory()
             {
                 return View();
             }
-            [HttpPost]
-            public async Task<IActionResult> CreateCategory(AddCategoryViewModel CategoryModel)
+            [HttpPost]/*ữ liệu từ máy khách (client) lên máy chủ (server) để xử lý. */
+		public async Task<IActionResult> CreateCategory(AddCategoryViewModel CategoryModel)
             {
                 var category = new Category()
                 {
