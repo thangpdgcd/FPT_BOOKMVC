@@ -1,7 +1,7 @@
 ﻿@{
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
-        Layout = "_Layout1";
+        Layout = "_LayoutAdmin";
         ViewData["Title"] = "Admin Page";
     }
     else if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
