@@ -23,6 +23,9 @@
 	<link rel="stylesheet" type="text/css" href="~/css/util.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/main.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/shared/_LayoutAdmin.cshtml.cs" asp-append-version="true">
+	<link rel="preconnect" href="https://fonts.googleapis.com" asp-append-version="true">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin asp-append-version="true">
+	<link href="https://fonts.googleapis.com/css2?family=Afacad&family=Dhurjati&family=Kalnia&family=Open+Sans:wght@300&family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet" asp-append-version="true">
 </head>
 <body class="animsition">
 		<header>
@@ -39,11 +42,15 @@
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
+							<div class="help">
+								Help & FAQs
+							</div>
 						</a>
 
 						<a asp-area="Authenticated" asp-controller="User" asp-action="ProfileUser" class="flex-c-m trans-04 p-lr-25">
-							My Account
+							<div class="myaccount">
+								My Account
+							</div>
 						</a>
 					</div>
 				</div>

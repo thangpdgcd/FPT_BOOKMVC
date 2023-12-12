@@ -8,21 +8,45 @@ a {
     color: white;
 }
 
+.top-bar {
+    background-color: rgba(79, 77, 78, 0.48);
+}
+
 .title {
-    margin-left: 0px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Afacad', sans-serif;
+    font-family: 'Dhurjati', sans-serif;
+    font-family: 'Kalnia', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    margin-left: 340px;
+    font-weight: bold;
     color: black;
 }
-.left-top-bar {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.top-bar {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    
-}
+
 header {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    color: rgba(65, 61, 63, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.help {
+    font-family: 'Afacad', sans-serif;
+    font-family: 'Dhurjati', sans-serif;
+    font-family: 'Kalnia', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgba(69, 67, 68, 0.91);
+    font-weight: bold;
+    color: black;
+}
+.myaccount {
+    font-family: 'Afacad', sans-serif;
+    font-family: 'Dhurjati', sans-serif;
+    font-family: 'Kalnia', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgba(69, 67, 68, 0.91);
+    font-weight: bold;
+    color: black;
 }
 
 .btn-primary {
@@ -59,6 +83,13 @@ footer {
     color: white;
     padding: 20px 0;
     margin-top: 700px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    background-color: rgba(79, 77, 78, 0.48);
+    font-family: 'Afacad', sans-serif;
+    font-family: 'Dhurjati', sans-serif;
+    font-family: 'Kalnia', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .footer-content {
