@@ -15,7 +15,7 @@ namespace FPT_BOOKMVC.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<PublishCompany> PublishCompanies { get; set; }
         public DbSet<Cart> Carts { get; set; }
-        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }
 }
