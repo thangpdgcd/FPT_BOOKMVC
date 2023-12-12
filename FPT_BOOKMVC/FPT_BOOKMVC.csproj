@@ -25,11 +25,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Authenticated\Views\PublishCompany\" />
+    <None Include="Views\Shared\Cart\CartIndex.cshtml" />
+    <None Include="Views\Shared\PublishCompany\CompanyIndex.cshtml" />
+    <None Include="Views\Shared\PublishCompany\CreatePublishCompany.cshtml" />
+    <None Include="Views\Shared\PublishCompany\ViewCompany.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Areas\Authenticated\Views\Cart\CartIndex.cshtml" />
+    <Content Update="Views\Shared\Category\CategoryIndex.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
