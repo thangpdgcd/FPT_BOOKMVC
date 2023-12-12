@@ -7,6 +7,14 @@
     <UserSecretsId>aspnet-FPT_BOOKMVC-79271859-0461-4583-876d-79f6934210f3</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Areas\Authenticated\Views\PushlishCompany\**" />
     <Content Remove="Areas\Authenticated\Views\PushlishCompany\**" />

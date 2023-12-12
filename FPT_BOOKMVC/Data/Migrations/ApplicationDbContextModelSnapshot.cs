@@ -70,6 +70,30 @@ namespace FPT_BOOKMVC.Data.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("FPT_BOOKMVC.Models.Cart", b =>
+                {
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CartId"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("CartId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("FPT_BOOKMVC.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -334,6 +358,17 @@ namespace FPT_BOOKMVC.Data.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("PublishCompany");
+                });
+
+            modelBuilder.Entity("FPT_BOOKMVC.Models.Cart", b =>
+                {
+                    b.HasOne("FPT_BOOKMVC.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
