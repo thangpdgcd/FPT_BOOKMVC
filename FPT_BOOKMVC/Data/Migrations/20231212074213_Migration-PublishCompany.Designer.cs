@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPT_BOOKMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231210085056_Migraton-PushlishCompany")]
-    partial class MigratonPushlishCompany
+    [Migration("20231212074213_Migration-PublishCompany")]
+    partial class MigrationPublishCompany
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,28 +25,25 @@ namespace FPT_BOOKMVC.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FPT_BOOKMVC.Models.Category", b =>
+            modelBuilder.Entity("FPT_BOOKMVC.Models.PublishCompany", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("PublishingCompanyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PublishingCompanyId"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Adress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("PublishingCompanyId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("PublishCompanies");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

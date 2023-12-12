@@ -10,8 +10,11 @@ namespace FPT_BOOKMVC.Data
             : base(options)
         {
         }
-        public DbSet<Category> Categories { get; set; }   
-        public DbSet<PushlishCompany> PushlishCompanies { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
         public DbSet<Book> Books { get; set; }
+        public DbSet<PublishCompany> PublishCompanies { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+
     }
 }

@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Authenticated\Views\PushlishCompany\**" />
+    <Content Remove="Areas\Authenticated\Views\PushlishCompany\**" />
+    <EmbeddedResource Remove="Areas\Authenticated\Views\PushlishCompany\**" />
+    <None Remove="Areas\Authenticated\Views\PushlishCompany\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.14" />
@@ -18,7 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Authenticated\Views\PushlishCompany\" />
+    <Folder Include="Areas\Authenticated\Views\PublishCompany\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Authenticated\Views\Cart\CartIndex.cshtml" />
   </ItemGroup>
 
 </Project>

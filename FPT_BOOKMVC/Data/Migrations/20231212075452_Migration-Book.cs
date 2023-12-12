@@ -11,8 +11,7 @@ namespace FPT_BOOKMVC.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           
-
+         
             migrationBuilder.CreateTable(
                 name: "Books",
                 columns: table => new
@@ -32,29 +31,7 @@ namespace FPT_BOOKMVC.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Books", x => x.BookId);
-                    table.ForeignKey(
-                        name: "FK_Books_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Books_PushlishCompanies_PublishCompanyId",
-                        column: x => x.PublishCompanyId,
-                        principalTable: "PushlishCompanies",
-                        principalColumn: "PublishingCompanyId",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Books_CategoryId",
-                table: "Books",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Books_PublishCompanyId",
-                table: "Books",
-                column: "PublishCompanyId");
         }
 
         /// <inheritdoc />
@@ -62,8 +39,6 @@ namespace FPT_BOOKMVC.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Books");
-
-          
         }
     }
 }

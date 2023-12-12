@@ -30,7 +30,7 @@ namespace FPT_BOOKMVC.ModelsCRUD.Book
         [ForeignKey("CategoryId")]
         public Models.Category Category { get; set; }
         [ForeignKey("PublishCompanyId")]
-        public Models.PushlishCompany PublishCompany { get; set; }
+        public Models.PublishCompany PublishCompany { get; set; }
 
         [Required(ErrorMessage = "Please choose Front image")]
         [Display(Name = "Front Image")]

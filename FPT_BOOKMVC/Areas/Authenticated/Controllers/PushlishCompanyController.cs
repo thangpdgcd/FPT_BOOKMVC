@@ -4,20 +4,20 @@ using FPT_BOOKMVC.ModelsCRUD.PushlishCompany;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
-{
-    public class PushlishCompanyController : Controller
-	{
+namespace FPT_BOOKMVC.Areas.Authenticated.Controllers { 
+
+		public class PublishCompanyController : Controller
+		{
 			private readonly ApplicationDbContext context;
 
-			public PushlishCompanyController(ApplicationDbContext context)
+			public PublishCompanyController(ApplicationDbContext context)
 			{
 				this.context = context;
 			}
 			[HttpGet]
 			public async Task<IActionResult> CompanyIndex()
 			{
-				var company = await context.PushlishCompanies.ToListAsync();
+				var company = await context.PublishCompanies.ToListAsync();
 				return View(company);
 			}
 			[HttpGet]
@@ -28,23 +28,22 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			[HttpPost]
 			public async Task<IActionResult> CreatePublishCompany(AddCompanyViewModel CompanyModel)
 			{
-				var company = new PushlishCompany()
+				var company = new PublishCompany()
 				{
 					Name = CompanyModel.Name,
 					Adress = CompanyModel.Adress,
+
+
 				};
-				await context.PushlishCompanies.AddAsync(company);
+
+				await context.PublishCompanies.AddAsync(company);
 				await context.SaveChangesAsync();
 				return RedirectToAction("CompanyIndex");
-			} 
+			}
 			[HttpGet]
 			public async Task<IActionResult> ViewCompany(int id)
 			{
-			/**///để truy vấn công ty từ cơ sở dữ liệu dựa trên id được truyền vào.
-				//Phương thức FirstOrDefaultAsync trả về phần tử đầu tiên hoặc mặc định
-				//(null nếu không tìm thấy) theo điều kiện đưa ra.
-				
-			var company = await context.PushlishCompanies.FirstOrDefaultAsync(x => x.PublishingCompanyId == id);
+				var company = await context.PublishCompanies.FirstOrDefaultAsync(x => x.PublishingCompanyId == id);
 
 				if (company != null)
 				{
@@ -63,8 +62,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			[HttpPost]
 			public async Task<IActionResult> ViewCompany(UpdateCompany model)
 			{
-			//get id của sách lấy cacs attribute thuộc tính
-			var company = await context.PushlishCompanies.FindAsync(model.PublishingCompanyId);
+				var company = await context.PublishCompanies.FindAsync(model.PublishingCompanyId);
 				if (company != null)
 				{
 					company.Name = model.Name;
@@ -80,11 +78,11 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			[HttpPost]
 			public async Task<IActionResult> DeleteCompany(UpdateCompany model)
 			{
-				var company = await context.PushlishCompanies.FindAsync(model.PublishingCompanyId);
+				var company = await context.PublishCompanies.FindAsync(model.PublishingCompanyId);
 
 				if (company != null)
 				{
-					context.PushlishCompanies.Remove(company);
+					context.PublishCompanies.Remove(company);
 
 
 					await context.SaveChangesAsync();
@@ -94,6 +92,5 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
 				return RedirectToAction("CompanyIndex");
 			}
-		
-	}
+		}
 }

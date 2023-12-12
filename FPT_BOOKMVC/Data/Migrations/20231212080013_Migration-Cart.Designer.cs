@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPT_BOOKMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231210094023_Migration-Book")]
-    partial class MigrationBook
+    [Migration("20231212080013_Migration-Cart")]
+    partial class MigrationCart
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,7 +97,7 @@ namespace FPT_BOOKMVC.Data.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("FPT_BOOKMVC.Models.PushlishCompany", b =>
+            modelBuilder.Entity("FPT_BOOKMVC.Models.PublishCompany", b =>
                 {
                     b.Property<int>("PublishingCompanyId")
                         .ValueGeneratedOnAdd()
@@ -115,7 +115,7 @@ namespace FPT_BOOKMVC.Data.Migrations
 
                     b.HasKey("PublishingCompanyId");
 
-                    b.ToTable("PushlishCompanies");
+                    b.ToTable("PublishCompanies");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -328,7 +328,7 @@ namespace FPT_BOOKMVC.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FPT_BOOKMVC.Models.PushlishCompany", "PublishCompany")
+                    b.HasOne("FPT_BOOKMVC.Models.PublishCompany", "PublishCompany")
                         .WithMany()
                         .HasForeignKey("PublishCompanyId")
                         .OnDelete(DeleteBehavior.Cascade)

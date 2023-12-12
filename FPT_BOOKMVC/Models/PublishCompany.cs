@@ -2,7 +2,7 @@
 
 namespace FPT_BOOKMVC.Models
 {
-	public class PushlishCompany
+	public class PublishCompany
 	{
 		[Key]
 		public int PublishingCompanyId { get; set; }
