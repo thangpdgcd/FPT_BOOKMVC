@@ -1,4 +1,4 @@
-﻿/*using FPT_BOOKMVC.Data;
+﻿using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -114,4 +114,3 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		}
 	}
 }
-*/

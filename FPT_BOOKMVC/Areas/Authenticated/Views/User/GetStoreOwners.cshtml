@@ -1,0 +1,30 @@
+﻿@model List<FPT_BOOKMVC.Models.ApplicationUser>;
+@{
+}
+
+<h1>StoreOwner List</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Actions</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.Email</td>
+            <td>@customer.FullName</td>
+            <td>@customer.Address</td>
+            <td><a asp-area="Authenticated" asp-controller="User" asp-action="ResetPassword" class="btn btn-primary">Reset Password</a>
+                <a asp-area="Authenticated" asp-controller="User" asp-action="Delete" class="btn btn-danger">Delete</a></td>
+            
+            
+        </tr>
+    }
+    </tbody>
+</table>

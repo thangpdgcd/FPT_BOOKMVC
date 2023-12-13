@@ -3,9 +3,14 @@
 	{
 		Layout = "_LayoutAdmin";
 	}
-
-	else
+	else if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
 	{
 		Layout = "_Layout2";
+		ViewData["Title"] = "StoreOwner Page";
+	}
+	else
+	{
+		Layout = "_Layout";
+		ViewData["Title"] = "Normal Page";
 	}
 }
