@@ -19,7 +19,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         [HttpGet]
         public async Task<IActionResult> CategoryIndex()
         {
-            var category = await context.Categories.Where(x => x.IsApproved).ToListAsync(); 
+            var category = await context.Categories.Where(x => x.IsApproved).ToListAsync();
             //Phương thức này được
             // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
             return View(category);
