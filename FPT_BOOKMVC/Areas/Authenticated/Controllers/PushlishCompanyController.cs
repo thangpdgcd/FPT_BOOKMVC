@@ -17,7 +17,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers {
 			[HttpGet]
 			public async Task<IActionResult> CompanyIndex()
 			{
-				var company = await context.PublishCompanies.ToListAsync();
+				var company = await context.PublicCompanies.ToListAsync();
 				return View(company);
 			}
 			[HttpGet]
@@ -36,14 +36,14 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers {
 
 				};
 
-				await context.PublishCompanies.AddAsync(company);
+				await context.PublicCompanies.AddAsync(company);
 				await context.SaveChangesAsync();
 				return RedirectToAction("CompanyIndex");
 			}
 			[HttpGet]
 			public async Task<IActionResult> ViewCompany(int id)
 			{
-				var company = await context.PublishCompanies.FirstOrDefaultAsync(x => x.PublishingCompanyId == id);
+				var company = await context.PublicCompanies.FirstOrDefaultAsync(x => x.PublishingCompanyId == id);
 
 				if (company != null)
 				{
@@ -62,7 +62,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers {
 			[HttpPost]
 			public async Task<IActionResult> ViewCompany(UpdateCompany model)
 			{
-				var company = await context.PublishCompanies.FindAsync(model.PublishingCompanyId);
+				var company = await context.PublicCompanies.FindAsync(model.PublishingCompanyId);
 				if (company != null)
 				{
 					company.Name = model.Name;
@@ -78,11 +78,11 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers {
 			[HttpPost]
 			public async Task<IActionResult> DeleteCompany(UpdateCompany model)
 			{
-				var company = await context.PublishCompanies.FindAsync(model.PublishingCompanyId);
+				var company = await context.PublicCompanies.FindAsync(model.PublishingCompanyId);
 
 				if (company != null)
 				{
-					context.PublishCompanies.Remove(company);
+				context.PublicCompanies.Remove(company);
 
 
 					await context.SaveChangesAsync();

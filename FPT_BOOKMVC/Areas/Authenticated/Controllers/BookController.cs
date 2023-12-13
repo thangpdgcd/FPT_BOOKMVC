@@ -4,6 +4,7 @@ using FPT_BOOKMVC.ModelsCRUD.Book;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using FPT_BOOKMVC.Data;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
@@ -28,14 +29,14 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         public IActionResult CreateBook()
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name");
-            ViewBag.Company_id = new SelectList(context.PublishCompanies, "PublishingCompanyId", "Name");
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> CreateBook(AddBookViewModel BookModel)
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", BookModel.CategoryId);
-            ViewBag.Company_id = new SelectList(context.PublishCompanies, "PublishingCompanyId", "Name", BookModel.PublishCompanyId);
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", BookModel.PublishCompanyId);
             string uniqueFileName = UploadedFile(BookModel);
             var book = new Book()
             {
@@ -81,7 +82,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         public async Task<IActionResult> ViewBook(int id)
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name");
-            ViewBag.Company_id = new SelectList(context.PublishCompanies, "PublishingCompanyId", "Name");
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
             var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);
             if (book != null)
             {
@@ -112,7 +113,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         public async Task<IActionResult> ViewBook(UpdateBookView model)
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", model.CategoryId);
-            ViewBag.Company_id = new SelectList(context.PublishCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);
             var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == model.BookId);
             string change_img = UploadedFile(model);
             if (book != null)
@@ -222,7 +223,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
             var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name");
-            ViewBag.Company_id = new SelectList(context.PublishCompanies, "PublishingCompanyId", "Name");
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
             if (book != null)
             {
                 var viewmodel = new Book()

@@ -1,4 +1,4 @@
-using FPT_BOOKMVC.Data;
+using FPT_BOOKMVC;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿/*using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using FPT_BOOKMVC.Data;
-using FPT_BOOKMVC.ModelsCRUD.User;
-using FPT_BOOKMVC.Utils;
+
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
@@ -12,6 +11,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
@@ -153,3 +153,4 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
     }
 }
+*/
