@@ -4,7 +4,7 @@ using FPT_BOOKMVC.Models;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
