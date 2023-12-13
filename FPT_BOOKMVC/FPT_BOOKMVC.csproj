@@ -40,15 +40,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-    <None Include="Views\Shared\Cart\CartIndex.cshtml" />
-    <None Include="Views\Shared\PublishCompany\CompanyIndex.cshtml" />
-    <None Include="Views\Shared\PublishCompany\CreatePublishCompany.cshtml" />
-    <None Include="Views\Shared\PublishCompany\ViewCompany.cshtml" />
+    <None Include="Views\Cart\CartIndex.cshtml" />
+    <None Include="Views\PublishCompany\CompanyIndex.cshtml" />
+    <None Include="Views\PublishCompany\CreatePublishCompany.cshtml" />
+    <None Include="Views\PublishCompany\ViewCompany.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Shared\Category\CategoryIndex.cshtml">
+    <Content Update="Views\Category\CategoryIndex.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
