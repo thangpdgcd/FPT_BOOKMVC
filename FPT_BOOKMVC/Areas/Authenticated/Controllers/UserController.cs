@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.ModelsCRUD.User;
 using FPT_BOOKMVC.Utils;
-
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
     //[Area(SD.AuthenticatedArea)]
@@ -122,7 +121,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         }
         // Reset pass
         [HttpGet]
-        [Authorize(Roles = SD.AdminRole)]
+        //[Authorize(Roles = SD.AdminRole)]
         public async Task<IActionResult> ResetPassword()
         {
             var resetPasswordViewModel = new ResetPasswordViewModel();
@@ -130,7 +129,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = SD.AdminRole)]
+        //[Authorize(Roles = SD.AdminRole)]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
         {
             if (ModelState.IsValid)
