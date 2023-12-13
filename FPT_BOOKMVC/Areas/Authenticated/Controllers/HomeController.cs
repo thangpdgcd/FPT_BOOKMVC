@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using FPT_BOOKMVC.Models;
 
-namespace WebApplication123.Areas.Authenticated.Controllers
+namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
     
     public class HomeController : Controller
@@ -30,4 +30,4 @@ namespace WebApplication123.Areas.Authenticated.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
+}*/
