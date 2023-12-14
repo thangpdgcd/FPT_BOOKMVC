@@ -1,13 +1,16 @@
 ﻿using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.Models;
 using FPT_BOOKMVC.ModelsCRUD.Category;
+using FPT_BOOKMVC.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
     //area
-
+    [Area(SD.AuthenticatedArea)]
+    [Authorize(Roles = SD.StoreOwnerRole + "," + SD.AdminRole)]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext context;

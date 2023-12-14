@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 
 
-namespace FPT_BOOKMVC
+namespace FPT_BOOKMVC.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

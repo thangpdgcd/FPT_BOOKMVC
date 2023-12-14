@@ -1,13 +1,17 @@
 ﻿using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.Models;
 using FPT_BOOKMVC.ModelsCRUD.Book;
+using FPT_BOOKMVC.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FPT_BOOKMVC.Data;
+
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
+    [Area(SD.AuthenticatedArea)]
+    [Authorize(Roles = SD.StoreOwnerRole + "," + SD.CustomerRole)]
     public class BookController : Controller
     {
         string global_image_change_url = "";

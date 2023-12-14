@@ -1,8 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-}
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        Layout = "_LayoutAdmin";
+        ViewData["Title"] = "Admin Page";
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    }
+    else if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
+    {
+        Layout = "_Layout2";
+        ViewData["Title"] = "StoreOwner Page";
+
+    }
+    else
+    {
+        Layout = "_Layout";
+        ViewData["Title"] = "Normal Page";
+    }
+
+}
