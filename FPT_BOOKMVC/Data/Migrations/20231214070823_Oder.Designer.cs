@@ -4,6 +4,7 @@ using FPT_BOOKMVC;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPT_BOOKMVC.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231214070823_Oder")]
+    partial class Oder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,7 +84,7 @@ namespace FPT_BOOKMVC.Data.Migrations
                             Price = 1m,
                             PublishCompanyId = 1,
                             Quantity = 1,
-                            UpdateDate = new DateTime(2023, 12, 14, 15, 10, 22, 452, DateTimeKind.Local).AddTicks(9981)
+                            UpdateDate = new DateTime(2023, 12, 14, 14, 8, 23, 649, DateTimeKind.Local).AddTicks(1463)
                         });
                 });
 
@@ -188,45 +191,6 @@ namespace FPT_BOOKMVC.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("FPT_BOOKMVC.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("OrderDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"));
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.HasKey("OrderDetailId");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderDetails");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderDetailId = 1,
-                            BookId = 1,
-                            OrderId = 2,
-                            Quantity = 2,
-                            Total = 0m
-                        });
                 });
 
             modelBuilder.Entity("FPT_BOOKMVC.Models.PublishCompany", b =>
@@ -542,25 +506,6 @@ namespace FPT_BOOKMVC.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("FPT_BOOKMVC.Models.OrderDetail", b =>
-                {
-                    b.HasOne("FPT_BOOKMVC.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FPT_BOOKMVC.Models.Order", "order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("order");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
