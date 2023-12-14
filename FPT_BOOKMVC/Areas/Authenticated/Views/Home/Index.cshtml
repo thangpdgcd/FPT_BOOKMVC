@@ -3,13 +3,11 @@
     {
         Layout = "_LayoutAdmin";
         ViewData["Title"] = "Admin Page";
-
     }
     else if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
     {
         Layout = "_Layout2";
         ViewData["Title"] = "StoreOwner Page";
-
     }
     else if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
     {
@@ -20,9 +18,6 @@
     {
         Layout = "_Layout";
         ViewData["Title"] = "Normal Page";
-    }
-
+    }   
 }
-<img src="/Images/Screenshot 2023-04-20 102121.png" width="100%" height="100%">
-
 

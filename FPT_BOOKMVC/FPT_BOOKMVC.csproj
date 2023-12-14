@@ -49,10 +49,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Cart\CartIndex.cshtml" />
-    <None Include="Views\PublishCompany\CompanyIndex.cshtml" />
-    <None Include="Views\PublishCompany\CreatePublishCompany.cshtml" />
-    <None Include="Views\PublishCompany\ViewCompany.cshtml" />
+    <None Include="Areas\Authenticated\Views\Home\Index.cshtml" />
+    <None Include="Areas\Authenticated\Views\Home\Privacy.cshtml" />
+    <None Include="Areas\Authenticated\Views\Cart\CartIndex.cshtml" />
+    <None Include="Areas\Authenticated\Views\PublishCompany\CompanyIndex.cshtml" />
+    <None Include="Areas\Authenticated\Views\PublishCompany\CreatePublishCompany.cshtml" />
+    <None Include="Areas\Authenticated\Views\PublishCompany\ViewCompany.cshtml" />
     <None Include="Areas\Authenticated\Views\User\GetCustomers.cshtml" />
     <None Include="Areas\Authenticated\Views\User\GetStoreOwners.cshtml" />
     <None Include="Areas\Authenticated\Views\User\ProfileUser.cshtml" />
@@ -60,7 +62,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Category\CategoryIndex.cshtml">
+    <Content Update="Areas\Authenticated\Views\Category\CategoryIndex.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

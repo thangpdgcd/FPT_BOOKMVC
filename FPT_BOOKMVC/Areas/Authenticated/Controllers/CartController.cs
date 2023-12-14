@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-    [Area(SD.AuthenticatedArea)]
-    [Authorize(Roles = SD.StoreOwnerRole + "," + SD.CustomerRole)]
-    public class CartController : Controller
+	[Area(SD.AuthenticatedArea)]
+	[Authorize(Roles = SD.StoreOwnerRole + "," + SD.CustomerRole)]
+	public class CartController : Controller
 	{
 		private readonly ApplicationDbContext context;
 		private readonly IWebHostEnvironment webHostEnvironment;

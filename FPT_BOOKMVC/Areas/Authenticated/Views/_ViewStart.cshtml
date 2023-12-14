@@ -1,22 +1,22 @@
-﻿@{
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        Layout = "_LayoutAdmin";
-        ViewData["Title"] = "Admin Page";
-    }
-    else if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
-    {
-        Layout = "_Layout2";
-        ViewData["Title"] = "StoreOwner Page";
-    }
-    else if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
-    {
-        Layout = "_Layout3";
-        ViewData["Title"] = "Customer Page";
-    }
-    else
-    {
-        Layout = "_Layout";
-        ViewData["Title"] = "Normal Page";
-    }
+﻿{
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Admin Page";
+}
+else if (User.Identity.IsAuthenticated && User.IsInRole("StoreOwner"))
+{
+    Layout = "_Layout2";
+    ViewData["Title"] = "StoreOwner Page";
+}
+else if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+{
+    Layout = "_Layout3";
+    ViewData["Title"] = "Customer Page";
+}
+else
+{
+    Layout = "_Layout";
+    ViewData["Title"] = "Normal Page";
+}
 }
