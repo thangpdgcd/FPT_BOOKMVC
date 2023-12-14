@@ -1,6 +1,6 @@
 ﻿using FPT_BOOKMVC.AutoBuildDb;
 using FPT_BOOKMVC.Data;
-using Microsoft.AspNetCore.Hosting;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
@@ -57,9 +57,8 @@ app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",
-     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
+     "{area=UnAuthenticated}/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
 
 app.Run();

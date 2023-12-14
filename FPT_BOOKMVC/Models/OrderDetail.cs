@@ -16,7 +16,7 @@ namespace FPT_BOOKMVC.Models
         [Required]
         public int OrderId { get; set; }
         [ForeignKey("OrderId")]
-        public Order order { get; set; }
+        public Order Order { get; set; }
         [Required]
         public decimal Total { get; set; }
     }

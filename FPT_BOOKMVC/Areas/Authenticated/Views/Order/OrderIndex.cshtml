@@ -1,0 +1,36 @@
+﻿@model List<FPT_BOOKMVC.Models.OrderDetail>
+@{
+	Layout = "_Layout2";
+}
+<h1>Customer Ordered</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>OrderId</th>
+			<th>Customer Name</th>
+			<th>OrderDetailId</th>
+			<th>Book Name</th>
+			<th>Ordered Quantity</th>
+			<th>Total Price</th>
+
+		</tr>
+	</thead>
+	
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Order.OrderId</td>
+				<td>@item.Order.User.Name</td>
+				<td>@item.OrderDetailId</td>
+				<td>@item.Book.Name</td>
+				<td>@item.Quantity</td>
+				<td>@item.Total</td>
+			</tr>
+			// total_cart += item.Total;
+		}
+
+
+	</tbody>
+</table>
+<a class="btn btn-primary" asp-controller="Order" asp-action="DeleteAllOrders">CheckOut</a>

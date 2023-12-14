@@ -1,10 +1,9 @@
 ﻿using FPT_BOOKMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
 namespace FPT_BOOKMVC.Areas.UnAuthenticated.Controllers
 {
-
+    [Area(Utils.SD.UnAuthenticatedArea)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
