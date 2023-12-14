@@ -1,10 +1,10 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using FPT_BOOKMVC.Models;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-
+    [Area(Utils.SD.AuthenticatedArea)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -30,4 +30,4 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}*/
+}

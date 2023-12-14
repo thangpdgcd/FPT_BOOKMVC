@@ -1,12 +1,15 @@
 ﻿using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.Models;
+using FPT_BOOKMVC.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-
-	public class CartController : Controller
+    [Area(SD.AuthenticatedArea)]
+    [Authorize(Roles = SD.StoreOwnerRole + "," + SD.CustomerRole)]
+    public class CartController : Controller
 	{
 		private readonly ApplicationDbContext context;
 		private readonly IWebHostEnvironment webHostEnvironment;

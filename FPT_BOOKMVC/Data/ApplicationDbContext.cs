@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace FPT_BOOKMVC
+namespace FPT_BOOKMVC.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
