@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-    [Area(SD.AuthenticatedArea)]
-    [Authorize(Roles = SD.StoreOwnerRole)]
-    public class PublishCompanyController : Controller
+	[Area(SD.AuthenticatedArea)]
+	[Authorize(Roles = SD.StoreOwnerRole)]
+	public class PublishCompanyController : Controller
 	{
 		private readonly ApplicationDbContext context;
 

@@ -30,19 +30,7 @@ namespace FPT_BOOKMVC.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.UpdateData(
-                table: "Books",
-                keyColumn: "BookId",
-                keyValue: 1,
-                column: "UpdateDate",
-                value: new DateTime(2023, 12, 14, 14, 8, 23, 649, DateTimeKind.Local).AddTicks(1463));
-
-            migrationBuilder.UpdateData(
-                table: "Categories",
-                keyColumn: "CategoryId",
-                keyValue: 1,
-                column: "IsApproved",
-                value: true);
+      
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",
@@ -56,19 +44,6 @@ namespace FPT_BOOKMVC.Data.Migrations
             migrationBuilder.DropTable(
                 name: "Orders");
 
-            migrationBuilder.UpdateData(
-                table: "Books",
-                keyColumn: "BookId",
-                keyValue: 1,
-                column: "UpdateDate",
-                value: new DateTime(2023, 12, 14, 13, 53, 45, 956, DateTimeKind.Local).AddTicks(7611));
-
-            migrationBuilder.UpdateData(
-                table: "Categories",
-                keyColumn: "CategoryId",
-                keyValue: 1,
-                column: "IsApproved",
-                value: false);
         }
     }
 }

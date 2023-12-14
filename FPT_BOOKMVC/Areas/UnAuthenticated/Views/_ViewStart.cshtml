@@ -7,6 +7,10 @@
     {
         Layout = "_Layout2";
     }
+    else if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+    {
+        Layout = "_Layout3";
+    }
     else
     {
         Layout = "_Layout";

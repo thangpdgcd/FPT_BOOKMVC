@@ -32,8 +32,6 @@ namespace FPT_BOOKMVC.AutoBuildDb
                 Console.WriteLine(e);
                 throw;
             }
-
-
             // checking in table Role, if yes then return, if not deploy the codes after these conditions
             if (_db.Roles.Any(r => r.Name == SD.AdminRole)) return;
             if (_db.Roles.Any(r => r.Name == SD.StoreOwnerRole)) return;
