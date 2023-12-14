@@ -7,19 +7,11 @@
     <UserSecretsId>aspnet-FPT_BOOKMVC-79271859-0461-4583-876d-79f6934210f3</UserSecretsId>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <LangVersion>preview</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <LangVersion>preview</LangVersion>
-  </PropertyGroup>
+ 
 
   <ItemGroup>
-    <Compile Remove="Areas\Authenticated\Views\PushlishCompany\**" />
-    <Content Remove="Areas\Authenticated\Views\PushlishCompany\**" />
-    <EmbeddedResource Remove="Areas\Authenticated\Views\PushlishCompany\**" />
-    <None Remove="Areas\Authenticated\Views\PushlishCompany\**" />
+	  <Content Remove="Areas\Authenticated\Views\Home\Index.cshtml" />
+	  <Content Remove="Areas\Authenticated\Views\Home\Privacy.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,11 +53,11 @@
     <None Include="Areas\Authenticated\Views\User\ResetPassword.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Update="Areas\Authenticated\Views\Category\CategoryIndex.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="Areas\Authenticated\Views\Home\Index.cshtml" />
+		<AdditionalFiles Include="Areas\Authenticated\Views\Home\Privacy.cshtml" />
+		<AdditionalFiles Include="Areas\UnAuthenticated\Views\Home\Index.cshtml" />
+		<AdditionalFiles Include="Areas\UnAuthenticated\Views\Home\Privacy.cshtml" />
+	</ItemGroup>
 
 </Project>
