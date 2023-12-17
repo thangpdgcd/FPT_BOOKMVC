@@ -5,6 +5,7 @@ using FPT_BOOKMVC.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
@@ -22,11 +23,13 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         [HttpGet]
         public async Task<IActionResult> CategoryIndex()
         {
-            var category = await context.Categories.Where(x => x.IsApproved).ToListAsync();
+
+            List <Category> category = await context.Categories.Where(x => x.IsApproved).ToListAsync();
             //Phương thức này được
             // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
             return View(category);
         }
+        [HttpGet]
         public async Task<IActionResult> CategoryApproved()
         {
             var category = await context.Categories.ToListAsync();

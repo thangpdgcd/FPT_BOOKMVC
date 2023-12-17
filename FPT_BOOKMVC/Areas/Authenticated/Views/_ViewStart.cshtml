@@ -1,4 +1,4 @@
-﻿{
+﻿
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
     Layout = "_LayoutAdmin";
@@ -17,6 +17,5 @@ else if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
 else
 {
     Layout = "_Layout";
-    ViewData["Title"] = "Normal Page";
-}
+    ViewData["Title"] = "Nomal Page";
 }
