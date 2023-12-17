@@ -20,35 +20,3 @@ html {
 body {
   margin-bottom: 60px;
 }
-/*header*/
-.container-menu-desktop
-{
-    
-}
-.top-bar {
-
-}
-.left-top-bar
-{
-    
-}
-
-.title-header {
-    color: aqua;
-}
-/*slider*/
-slider
-{
-    font-size:20%;
-    width:100px;
-    height:100px;
-}
-.nav-li {
-    width: 61%;
-    margin-left: 27rem;
-}
-#carouselExampleDark
-{
-    width:100px;
-    margin-left:45rem;
-}
