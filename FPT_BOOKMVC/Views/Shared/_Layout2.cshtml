@@ -23,7 +23,6 @@
 	<link rel="stylesheet" type="text/css" href="~/css/util.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/main.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="_Layout2.cshtml.css" asp-append-version="true" />
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" asp-append-version="true" />
 </head>
 <body class="animsition">
 	<header>
@@ -79,7 +78,7 @@
 							</li>
 
 							<li class="">
-								<a asp-area="Authenticated" asp-controller="PuslishCompany" asp-action="CompanyIndex">Publishing Company</a>
+								<a asp-area="Authenticated" asp-controller="PublishCompany" asp-action="CompanyIndex">Publishing Company</a>
 							</li>
 							<li class="">
 								<a asp-area="Authenticated" asp-controller="Book" asp-action="BookIndex">Book</a>
@@ -97,7 +96,7 @@
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<a asp-area="UnAuthenticated" asp-controller="Cart" asp-action="CartIndex" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+						<a asp-area="Authenticated" asp-controller="Cart" asp-action="CartIndex" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
 

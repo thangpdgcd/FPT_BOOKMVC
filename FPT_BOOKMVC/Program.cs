@@ -1,6 +1,5 @@
 ﻿using FPT_BOOKMVC.AutoBuildDb;
 using FPT_BOOKMVC.Data;
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
