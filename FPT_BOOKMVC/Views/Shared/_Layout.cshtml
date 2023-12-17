@@ -23,11 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="~/css/util.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/main.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="_Layout.cshtml.css" asp-append-version="true">
-	<link rel="preconnect" href="https://fonts.googleapis.com" asp-append-version="true">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin asp-append-version="true">
-	<link href="https://fonts.googleapis.com/css2?family=Afacad&family=Dhurjati&family=Kalnia&family=Open+Sans:wght@300&family=Poppins:ital,wght@1,200&family=Rubik+Doodle+Triangles&family=Rubik+Scribble&family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet" asp-append-version="true">
 </head>
-
 <body class="animsition">
 	<header>
 		<div class="container-menu-desktop">
@@ -36,7 +32,7 @@
 				<div class="content-topbar flex-sb-m h-full container" id="topbar-content">
 					<div class="left-top-bar">
 					<div class="title-header">
-							WELCOME TO FPT BOOKS - BY GROUP DEVELOPMENT
+							WELCOM TO FPT BOOKS - BY GROUP DEVELOPMENT
 					</div>
 					</div>
 				</div>
@@ -47,7 +43,7 @@
 
 					<!-- Logo desktop -->
 					<a href="#" class="logo">
-						<img src="~/Images/OIPiconsach.png" alt="IMG-LOGO">
+						<img src="~/Images/logo.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -91,7 +87,7 @@
 								<button type="submit" class="flex-c-m trans-04">
 									<i class="zmdi zmdi-search"></i>
 								</button>
-								<input class="plh3" btn="search-heart-fill" type="text" name="Search" placeholder="Search">
+								<input class="plh3 https://github.com/thangpdgcd/FPT_BOOKMVC.git" btn="search-heart-fill" type="text" name="Search" placeholder="Search">
 							</form>
 						</div>
 					</div>
@@ -99,6 +95,15 @@
 			</div>
 		</div>
 	</header>
+	
+
+	<div class="container">
+		<main role="main" class="pb-3 p-t-135">
+			@RenderBody()
+		</main>
+	
+	</div>
+
 	<!-- slider -->
 	<slider>
 		<div id="carouselExampleDark" class="carousel carousel-dark slide w-50 ">
@@ -109,7 +114,7 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active" data-bs-interval="10000">
-					<img src="/Images/Forest background aesthetic novel book cover.jpg" class="d-block w-100" alt="...">
+					<img src="/Images/White Illustrative Creative Literature Project Presentation.png" class="d-block w-100" alt="...">
 
 				</div>
 				<div class="carousel-item" data-bs-interval="2000">
@@ -131,16 +136,6 @@
 			</button>
 		</div>
 	</slider>
-	
-
-	<div class="container">
-		<main role="main" class="pb-3 p-t-135">
-			@RenderBody()
-		</main>
-	
-	</div>
-
-	
 	
 	<script src="~/vendor/jquery/jquery-3.2.1.min.js" asp-append-version="true"></script>
 	<!--===============================================================================================-->
