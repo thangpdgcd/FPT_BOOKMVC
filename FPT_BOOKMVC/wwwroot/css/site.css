@@ -20,3 +20,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+.title-header
+{
+    color:red;
+}
+/*slider*/
+#carouselExampleDark
+{
+    margin-left:270px;
+    margin-top:5.7rem;
+}
