@@ -29,12 +29,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
             return View(category);
         }
-        [HttpGet]
-        public async Task<IActionResult> CategoryApproved()
-        {
-            var category = await context.Categories.ToListAsync();
-            return View(category);
-        }
+       
         [HttpGet] //gửi yêu cầu qua URL.
         public IActionResult CreateCategory()
         {
@@ -106,7 +101,13 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
             return RedirectToAction("CategoryIndex");
         }
-        [HttpPost("{id}/approve")]
+		[HttpGet]
+		public async Task<IActionResult> CategoryApproved()
+		{
+			var category = await context.Categories.ToListAsync();
+			return View(category);
+		}
+		[HttpPost("{id}/approve")]
         public async Task<IActionResult> Approve(int id)
         {
             var category = await context.Categories.FindAsync(id);
@@ -120,7 +121,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
             // code to notify store owner of category approval here
 
-            return RedirectToAction(nameof(CategoryIndex));
+            return RedirectToAction(nameof(CategoryApproved));
         }
 
         [HttpPost("{id}/reject")]
@@ -137,7 +138,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
             // code to notify store owner of category rejection here
 
-            return RedirectToAction(nameof(CategoryIndex));
+            return RedirectToAction(nameof(CategoryApproved));
         }
     }
 }

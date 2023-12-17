@@ -117,7 +117,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         public async Task<IActionResult> ViewBook(UpdateBookView model)
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", model.CategoryId);
-            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);//render du lieu ra view
             var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == model.BookId);
             string change_img = UploadedFile(model);
             if (book != null)
@@ -142,9 +142,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 return NotFound("Book Not Found");
 
             }
-
-
-
             await context.SaveChangesAsync();
 
             return RedirectToAction("BookIndex");
@@ -217,6 +214,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             }
             return uniqueFileName;
         }
+        [HttpGet]
         public async Task<IActionResult> BookProduct()
         {
             var book = await context.Books.ToListAsync();
@@ -265,7 +263,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 {
                     search_list.Add(book);
                 }
-
             }
             return View(search_list);
         }
