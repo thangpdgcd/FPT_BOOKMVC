@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/FPT_BOOKMVC.styles.css" asp-append-version="true" />
-	<link rel="icon" type="image/png" href="~/Images/icons/iconbooknew.png" asp-append-version="true" />
+	<link rel="icon" type="image/png" href="~/Images/icons/favicon.png" asp-append-version="true" />
 	<link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css" asp-append-version="true">
@@ -22,41 +22,21 @@
 	<link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/util.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/main.css" asp-append-version="true">
-	<link rel="stylesheet" type="text/css" href="_Layout2.cshtml.css" asp-append-version="true" />
+
 </head>
 <body class="animsition">
 	<header>
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
-<<<<<<< Updated upstream
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						
-							WELCOME STORE OWNER TO FPT BOOKS
-						
-					</div>
-
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Help & FAQs
-						</a>
-
-						<a asp-area="Authenticated" asp-controller="User" asp-action="ProfileUser" class="flex-c-m trans-04 p-lr-25">
-							My Account
-						</a>
-=======
 			<div b-xssfdw9bu3="" class="top-bar" style="">
 				<div b-xssfdw9bu3="" class="content-topbar flex-sb-m h-full container" id="topbar-content">
 					<div b-xssfdw9bu3="" class="left-top-bar">
 						<div b-xssfdw9bu3="" class="title-header">
-							WELCOME TO FPT BOOKS - BY GROUP DEVELOPMENT
+							WELCOM TO FPT BOOKS - BY GROUP DEVELOPMENT
 						</div>
->>>>>>> Stashed changes
 					</div>
 				</div>
 			</div>
-
 			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container mb-3">
 
@@ -98,20 +78,21 @@
 
 						</ul>
 					</div>
-
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
+							@* 	<i class="zmdi zmdi-search"></i> *@
+							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook">
+								<button type="submit" class="flex-c-m trans-04">
+									<i class="zmdi zmdi-search"></i>
+								</button>
+								<input class="plh3" type="text" name="Search" placeholder="Search...">
+							</form>
 
+						</div>
 						<a asp-area="Authenticated" asp-controller="Cart" asp-action="CartIndex" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
-
-						@* <a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0"> *@
-						@* 	<i class="zmdi zmdi-favorite-outline"></i> *@
-						@* </a> *@
 					</div>
 					<div class="navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom pl-5">
 						<div class="how-shadow1 rounded-pill">
@@ -245,7 +226,7 @@
 				wheelSpeed: 1,
 				scrollingThreshold: 1000,
 				wheelPropagation: false,
-			});
+			}); S
 
 			$(window).on('resize', function () {
 				ps.update();
@@ -257,10 +238,9 @@
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
 	@await RenderSectionAsync("Scripts", required: false)
-</body>
 
 <div b-8pblsz8l8s="" class="contact-info" style="
-    margin-top: 220px;
+    margin-top: 320px;
     background-color: darkgrey;
     color: black;
     font-family: system-ui;
@@ -273,4 +253,5 @@
 		<p b-8pblsz8l8s="">Phone: +123456789</p>
 	</div>
 </div>
+</body>
 </html>
