@@ -33,4 +33,12 @@
 
 	</tbody>
 </table>
-<a class="btn btn-primary" asp-controller="Order" asp-action="DeleteAllOrders">CheckOut</a>
+<script>
+	$('.js-order').each(function () {
+		var nameProduct = $(this).parent().parent().parent().parent().html();
+		$(this).on('click', function () {
+			swal("Successfully!", "You will receive your order after 4 days!", "success");
+		});
+	});
+</script>
+<button class="btn btn-primary" onclick="clickcheckout" id="checkout" asp-controller="Order" asp-action="DeleteAllOrders">CheckOut</button>

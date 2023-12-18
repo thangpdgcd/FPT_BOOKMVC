@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] FPT BOOKS</title>
+	<title>@ViewData["Title"] - FPT BOOKS</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/FPT_BOOKMVC.style.css" asp-append-version="true" />
-	<link rel="icon" type="image/png" href="~/Images/icons/iconbooknew.png" asp-append-version="true" />
+	<link rel="stylesheet" href="~/FPT_BOOKMVC.styles.css" asp-append-version="true" />
+	<link rel="icon" type="image/png" href="~/Images/icons/favicon.png" asp-append-version="true" />
 	<link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css" asp-append-version="true">
@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/util.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/main.css" asp-append-version="true">
-	<link rel="stylesheet" type="text/css" href="_Layout.cshtml.css" asp-append-version="true">
+
 </head>
 <body class="animsition">
 	<header>
@@ -33,6 +33,7 @@
 					<div class="left-top-bar">
 					<div class="title-header">
 							WELCOM TO FPT BOOKS - BY GROUP DEVELOPMENT
+							
 					</div>
 					</div>
 				</div>
@@ -43,13 +44,13 @@
 
 					<!-- Logo desktop -->
 					<a href="#" class="logo">
-						<img src="~/Images/logo.png" alt="IMG-LOGO">
+						<img src="~/Images/iconbooks.jpg" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
+							<li class="b-xssfdw9bu3">
 								<a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">FPT BOOOKS</a>
 
 							</li>
@@ -61,14 +62,9 @@
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
 						</div>
-
 						<a asp-area="Authenticated" asp-controller="Cart" asp-action="CartIndex" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</a>
-
-						@* <a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0"> *@
-						@* 	<i class="zmdi zmdi-favorite-outline"></i> *@
-						@* </a> *@
 					</div>
 					<div class="navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom pl-5">
 						<div class="how-shadow1 rounded-pill">
@@ -82,12 +78,11 @@
 							<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
 								<img src="~/Images/icons/icon-close2.png" alt="CLOSE">
 							</button>
-
 							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook">
 								<button type="submit" class="flex-c-m trans-04">
 									<i class="zmdi zmdi-search"></i>
 								</button>
-								<input class="plh3 https://github.com/thangpdgcd/FPT_BOOKMVC.git" btn="search-heart-fill" type="text" name="Search" placeholder="Search">
+								<input class="plh3" type="text" name="Search" placeholder="Search...">
 							</form>
 						</div>
 					</div>
@@ -95,15 +90,6 @@
 			</div>
 		</div>
 	</header>
-	
-
-	<div class="container">
-		<main role="main" class="pb-3 p-t-135">
-			@RenderBody()
-		</main>
-	
-	</div>
-
 	<!-- slider -->
 	<slider>
 		<div id="carouselExampleDark" class="carousel carousel-dark slide w-50 ">
@@ -114,11 +100,11 @@
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active" data-bs-interval="10000">
-					<img src="/Images/White Illustrative Creative Literature Project Presentation.png" class="d-block w-100" alt="...">
+					<img src="/Images/White Illustrative Creative Literature Project Presentation.png" class="d-block w-100" alt="image-home">
 
 				</div>
 				<div class="carousel-item" data-bs-interval="2000">
-					<img src="/Images/Book8.jpg" class="d-block w-100" alt="...">
+					<img src="/Images/Forest background aesthetic novel book cover.jpg" class="d-block w-100" alt="image-home">
 
 				</div>
 				<div class="carousel-item">
@@ -135,6 +121,16 @@
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
+	
+
+	<div class="container">
+		<main role="main" class="pb-3 p-t-135">
+			@RenderBody()
+		</main>
+	
+	</div>
+
+	
 	</slider>
 	
 	<script src="~/vendor/jquery/jquery-3.2.1.min.js" asp-append-version="true"></script>
