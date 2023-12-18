@@ -3688,7 +3688,9 @@ header
     background-color: white;
    position:absolute;       
 }
-.container-menu-desktop
-{
-  
+.flex-c-m {
+    width: 28rem;
+    height: 39px;
+    margin-top: 36px;
+    border-radius: 34px;
 }
