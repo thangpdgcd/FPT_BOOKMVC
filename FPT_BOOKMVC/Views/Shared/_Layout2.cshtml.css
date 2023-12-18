@@ -51,7 +51,40 @@ button.accept-policy {
     font-size: 20px;
     color: white;
 }
+<<<<<<< Updated upstream
 .right-top-bar flex-w h-full {
     font-size: 30px;
     color: white;
 }
+=======
+
+.contact-info {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+}
+
+.contact-info
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.company-details {
+    border: 2px solid #fff;
+    padding: 15px;
+}
+
+    .company-details
+    h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .company-details
+    p {
+        margin-bottom: 8px;
+    }
+
+
+>>>>>>> Stashed changes
