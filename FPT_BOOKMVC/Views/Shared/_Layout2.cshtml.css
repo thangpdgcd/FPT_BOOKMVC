@@ -47,11 +47,14 @@ button.accept-policy {
     white-space: nowrap;
     line-height: 60px;
 }
-.left-top-bar {
-    font-size: 20px;
-    color: white;
+.top-bar-nav
+{
+    background-color:green;
+    
+    height:0px;
 }
-.right-top-bar flex-w h-full {
-    font-size: 30px;
-    color: white;
+.wrap-menu-desktop-owner 
+{
+    font-size:40px
+
 }

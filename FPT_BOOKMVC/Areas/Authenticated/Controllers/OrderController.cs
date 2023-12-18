@@ -4,7 +4,6 @@ using System.Data;
 using FPT_BOOKMVC.Utils;
 using FPT_BOOKMVC.Data;
 using Microsoft.EntityFrameworkCore;
-
 using System.Security.Claims;
 using FPT_BOOKMVC.Models;
 using Microsoft.AspNetCore.Hosting;
@@ -29,7 +28,7 @@ namespace FPT_BOOKMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> OrderIndex()
         {
-            var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();
+            var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();//ham noi bang
             return View(order_customer_detail);
         }
 

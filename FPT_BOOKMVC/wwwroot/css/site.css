@@ -13,12 +13,10 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
 html {
   position: relative;
   min-height: 100%;
 }
-
 body {
   margin-bottom: 60px;
 }
@@ -31,8 +29,9 @@ body {
 }
 /*slider*/
 #carouselExampleDark {
-    margin-left: 900px;
-    margin-top: 5rem;
-    width: 34% !important;
+    margin-left: 780px;
+    margin-top:100px;
+    width: 40% !important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
+

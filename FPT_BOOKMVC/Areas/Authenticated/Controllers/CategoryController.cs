@@ -66,7 +66,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 return await Task.Run(() => View("ViewCategory", viewmodel)); //truyền đối tượng viewmodel
 
             }
-
             return RedirectToAction("CategoryIndex");
         }
         [HttpPost]

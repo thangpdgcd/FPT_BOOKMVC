@@ -35,7 +35,7 @@ namespace FPT_BOOKMVC.AutoBuildDb
             // checking in table Role, if yes then return, if not deploy the codes after these conditions
             if (_db.Roles.Any(r => r.Name == SD.AdminRole)) return;
             if (_db.Roles.Any(r => r.Name == SD.StoreOwnerRole)) return;
-            if (_db.Roles.Any(r => r.Name == SD.CustomerRole)) return;
+            if (_db.Roles.Any(r => r.Name == SD.CustomerRole)) return; 
 
             // this will deploy if there no have any role yet
             _roleManager.CreateAsync(new IdentityRole(SD.AdminRole)).GetAwaiter().GetResult();
