@@ -85,20 +85,8 @@
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							@* <i class="zmdi zmdi-search"></i> *@
 
-							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook" style="width: 244px; margin-right:2px;
-    height: 52px;
-    border-radius: 40px;
-boder:1px solid black;
-">
-
-								<button type="submit" class="flex-c-m trans-04" id="search">
-									<i class="zmdi zmdi-search"></i>
-								</button>
-								<input class="plh3" type="text" name="Search" placeholder="Search..." style="font-size:20px;">
-
-							</form>
 						</div>
-						<img src="~/Images/icons/485-4851736_free-png-search-icon-search-icon-free-download.png" width="20" , height="20" />
+						<img src="~/Images/icons/485-4851736_free-png-search-icon-search-icon-free-download.png" width="20" , height="20" style="cursor:pointer" />
 
 						<a asp-area="Authenticated" asp-controller="Cart" asp-action="CartIndex" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-shopping-cart"></i>
@@ -247,7 +235,7 @@ margin-bottom:500%;
 				wheelSpeed: 1,
 				scrollingThreshold: 1000,
 				wheelPropagation: false,
-			});S
+			}); S
 
 			$(window).on('resize', function () {
 				ps.update();
