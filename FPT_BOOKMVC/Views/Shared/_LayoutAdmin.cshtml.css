@@ -8,8 +8,22 @@ a {
     color: white;
 }
 
-.top-bar {
-    background-color: rgba(79, 77, 78, 0.48);
+./*top-bar {
+    top: 21px;
+    height: 53px;
+}
+
+.wrap-menu-desktop {
+    display: inline;
+    top: 47px;
+}
+
+.content-topbar {
+    height: 12px;
+}
+
+.title-header {
+    margin-top: 37px;
 }
 
 .title {
@@ -48,7 +62,7 @@ header {
     color: rgba(69, 67, 68, 0.91);
     font-weight: bold;
     color: black;
-}
+}*/
 
 .btn-primary {
     color: #fff;
