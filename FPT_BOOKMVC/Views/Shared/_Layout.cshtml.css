@@ -10,6 +10,28 @@ a.navbar-brand {
 a {
     color: #0077cc;
 }
+/*.top-bar {
+    top: 21px;
+    height: 53px;
+}
+
+.wrap-menu-desktop {
+    display: inline;
+    top: 47px;
+}
+
+.content-topbar {
+    height: 12px;
+}*/
+
+.title-header {
+padding-top:50px
+}
+.right-top-bar {
+    margin-left: 408px;
+    margin-bottom: 50px
+}
+
 
 .btn-primary {
     color: #fff;

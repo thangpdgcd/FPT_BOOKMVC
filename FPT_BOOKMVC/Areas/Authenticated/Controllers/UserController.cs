@@ -28,7 +28,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         public async Task<IActionResult> AdminIndex()
         {
             // taking current login user id
-            var claimsIdentity = (ClaimsIdentity    )User.Identity;
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             // exception itself admin
@@ -46,14 +46,13 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             return View(userList.ToList());
         }
 
-        [Area(SD.AuthenticatedArea)]
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-            if (user == null) return NotFound();
+            if (user == null) return NotFound(); 
             await _userManager.DeleteAsync(user);
-            return RedirectToAction(nameof(AdminIndex));
+            return RedirectToAction(nameof(GetStoreOwners));
         }
 
         [HttpGet]

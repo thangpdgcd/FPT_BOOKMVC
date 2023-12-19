@@ -23,10 +23,13 @@ body {
 .title-header {
     color: rgba(35, 34, 34, 0.63);
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 370px;
+    font-size:17px;
+    margin-left: 3px;
+    margin-top:15px;
     font-family: 'Poor Richard','Berlin Sans FB';
 }
+
+
 /*slider*/
 #carouselExampleDark {
     margin-left: 780px;

@@ -11,6 +11,23 @@ a {
   color: #0077cc;
 }
 
+/*.top-bar {
+    top: 21px;
+    height: 53px;
+}*/
+
+/*.wrap-menu-desktop {
+    display: inline;
+    top: 47px;
+}
+
+.content-topbar {
+    height: 12px;
+}*/
+
+.title-header {
+    margin-top: 37px;
+}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
