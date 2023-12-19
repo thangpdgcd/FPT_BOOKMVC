@@ -9,26 +9,26 @@ using FPT_BOOKMVC.ModelsCRUD.User;
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 {
-    //[Area(SD.AuthenticatedArea)]
     [Area(SD.AuthenticatedArea)]
     public class UserController : Controller
     {
-        private readonly ApplicationDbContext _context;
         private readonly ApplicationDbContext _db;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManger;
 
-        //GET
-        public UserController(ApplicationDbContext db, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        // GET
+        public UserController(ApplicationDbContext db, UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             _db = db;
             _userManager = userManager;
-            _roleManager = roleManager;
+            _roleManger = roleManager;
         }
+
         public async Task<IActionResult> AdminIndex()
         {
             // taking current login user id
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claimsIdentity = (ClaimsIdentity    )User.Identity;
             var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             // exception itself admin
@@ -46,13 +46,13 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             return View(userList.ToList());
         }
 
+        [Area(SD.AuthenticatedArea)]
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null) return NotFound();
             await _userManager.DeleteAsync(user);
-
             return RedirectToAction(nameof(AdminIndex));
         }
 
@@ -153,6 +153,5 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
             return View(resetPasswordViewModel);
         }
-
     }
 }
