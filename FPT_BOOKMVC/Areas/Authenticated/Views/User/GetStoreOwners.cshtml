@@ -1,5 +1,6 @@
-﻿@model List<FPT_BOOKMVC.Models.ApplicationUser>;
+﻿@model List<FPT_BOOKMVC.Models.ApplicationUser>
 @{
+  
 }
 
 <h1>StoreOwner List</h1>
@@ -21,9 +22,8 @@
             <td>@customer.FullName</td>
             <td>@customer.Address</td>
             <td><a asp-area="Authenticated" asp-controller="User" asp-action="ResetPassword" class="btn btn-primary">Reset Password</a>
-                <a asp-area="Authenticated" asp-controller="User" asp-action="Delete" class="btn btn-danger">Delete</a></td>
-            
-            
+                    <a asp-area="Authenticated" asp-controller="User" asp-action="Delete" class="btn btn-danger" asp-route-id="@customer.Id">Delete</a>
+             </td>
         </tr>
     }
     </tbody>
