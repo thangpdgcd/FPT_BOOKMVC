@@ -1,4 +1,4 @@
-﻿
+﻿{
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
     Layout = "_LayoutAdmin";
@@ -13,9 +13,11 @@ else if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
 {
     Layout = "_Layout3";
     ViewData["Title"] = "Customer Page";
+    <img src="~/Images/065c8ac6-914f-43ba-9421-9dab04c14045_3e5133a7-9305-405a-a365-f30691351266_76d8c132-080e-43ac-8868-b2bead7158de_Book8.jpg" />
 }
 else
 {
     Layout = "_Layout";
     ViewData["Title"] = "Nomal Page";
+}
 }
