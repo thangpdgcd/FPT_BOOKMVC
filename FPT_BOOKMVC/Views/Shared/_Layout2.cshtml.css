@@ -58,14 +58,19 @@ button.accept-policy {
 }
 
 
-.top-bar-nav
-{
-    background-color:green;
-    
-    height:0px;
+.top-bar-nav {
+    background-color: green;
+    height: 0px;
 }
-.wrap-menu-desktop-owner 
-{
-    font-size:40px
 
+.wrap-menu-desktop-owner {
+    font-size: 40px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
 }
