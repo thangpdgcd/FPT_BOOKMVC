@@ -1,5 +1,4 @@
 ﻿﻿
-﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,31 +79,19 @@
 
 						</ul>
 					</div>
-
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							@* <i class="zmdi zmdi-search"></i> *@
-
-							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook" style="width: 244px; margin-right:2px;
-    height: 52px;
-    border-radius: 40px;
-boder:1px solid black;
-">
-
-								<button type="submit" class="flex-c-m trans-04" id="search">
-									<i class="zmdi zmdi-search"></i>
-								</button>
-								<input class="plh3" type="text" name="Search" placeholder="Search..." style="font-size:20px;">
-
-							</form>
+							<i class="zmdi zmdi-search"></i>
 						</div>
-						<img src="~/Images/icons/485-4851736_free-png-search-icon-search-icon-free-download.png" width="20" , height="20" />
 
 						<a asp-area="Authenticated" asp-controller="Cart" asp-action="CartIndex" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-shopping-cart"></i>
-							<img src="~/Images/icons/384561891_3349069335385321_619220898318217757_n.png" width="30" , height="30" />
 						</a>
+
+						@* <a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0"> *@
+						@* 	<i class="zmdi zmdi-favorite-outline"></i> *@
+						@* </a> *@
 					</div>
 					<div class="navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom pl-5">
 						<div class="how-shadow1 rounded-pill">
@@ -116,19 +103,14 @@ boder:1px solid black;
 					<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 						<div class="container-search-header">
 							<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-								<img src="~/Images/icons/icon-close2.png" alt="CLOSE" style="margin-left:2000px;margin-bottom:50px;">
+								<img src="~/Images/icons/icon-close2.png" alt="CLOSE">
 							</button>
 
-							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook" style="width: 540px;
-    height: 52px;
-    border-radius: 40px;
-margin-left:999px;
-margin-bottom:500%;
-">
+							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook">
 								<button type="submit" class="flex-c-m trans-04">
 									<i class="zmdi zmdi-search"></i>
 								</button>
-								<input class="plh3" type="text" name="Search" placeholder="Search..." style="font-size:20px">
+								<input class="plh3" type="text" name="Search" placeholder="Search...">
 							</form>
 						</div>
 					</div>
@@ -136,6 +118,23 @@ margin-bottom:500%;
 			</div>
 		</div>
 	</header>
+	<footer>
+		<div b-8pblsz8l8s="" class="contact-info" style="
+    margin-top: 320px;
+    background-color: darkgrey;
+    color: black;
+    font-family: system-ui;
+">
+			<h2 b-8pblsz8l8s="">Thông Tin Liên Hệ</h2>
+			<div b-8pblsz8l8s="" class="company-details">
+				<h3 b-8pblsz8l8s="">Tên Công Ty</h3>
+				<p b-8pblsz8l8s="">Địa chỉ công ty<br b-8pblsz8l8s="">Thành phố, Quốc gia</p>
+				<p b-8pblsz8l8s="">Email: contact@example.com</p>
+				<p b-8pblsz8l8s="">Phone: +123456789</p>
+			</div>
+		</div>
+
+	</footer>
 	<div class="container">
 		<main role="main" class="pb-3 p-t-135">
 			@RenderBody()
@@ -243,7 +242,7 @@ margin-bottom:500%;
 				wheelSpeed: 1,
 				scrollingThreshold: 1000,
 				wheelPropagation: false,
-			});S
+			}); S
 
 			$(window).on('resize', function () {
 				ps.update();
