@@ -55,12 +55,14 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-            if (user == null) return NotFound(); 
+            if (user == null) return NotFound();
             await _userManager.DeleteAsync(user);
-            return RedirectToAction(nameof(GetStoreOwners));
+            return RedirectToAction(nameof(AdminIndex));
         }
 
-        [HttpGet]
+
+
+		[HttpGet]
         public async Task<IActionResult> GetCustomers()
         {
             // taking current login user id
@@ -106,29 +108,28 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             return View(userList.ToList());
 
         }
+		[HttpGet]
+		public async Task<IActionResult> ProfileUser()
+		{
+			// taking current login user id
+			var claimsIdentity = (ClaimsIdentity)User.Identity;
+			var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-        [HttpGet]
-        public async Task<IActionResult> ProfileUser()
-        {
-            // taking current login user id
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+			// exception itself admin
+			var userList = _db.ApplicationUsers.Where(u => u.Id == claims.Value);
 
-            // exception itself admin
-            var userList = _db.ApplicationUsers.Where(u => u.Id == claims.Value);
-
-            foreach (var user in userList)
-            {
-                var userTemp = await _userManager.FindByIdAsync(user.Id);
-                var roleTemp = await _userManager.GetRolesAsync(userTemp);
-                user.Role = roleTemp.FirstOrDefault();
-            }
+			foreach (var user in userList)
+			{
+				var userTemp = await _userManager.FindByIdAsync(user.Id);
+				var roleTemp = await _userManager.GetRolesAsync(userTemp);
+				user.Role = roleTemp.FirstOrDefault();
+			}
 
 
-            return View(userList.ToList());
-        }
-        // Reset pass
-        [HttpGet]
+			return View(userList.ToList());
+		}
+		// Reset pass
+		[HttpGet]
         [Authorize(Roles = SD.AdminRole)]
         public async Task<IActionResult> ResetPassword()
         {

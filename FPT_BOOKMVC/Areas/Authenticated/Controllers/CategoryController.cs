@@ -114,7 +114,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             {
                 return NotFound();
             }
-
             category.IsApproved = true;
             context.SaveChanges();
 
