@@ -21,8 +21,9 @@
             <td>@customer.Email</td>
             <td>@customer.FullName</td>
             <td>@customer.Address</td>
-            <td><a asp-area="Authenticated" asp-controller="User" asp-action="ResetPassword" class="btn btn-primary">Reset Password</a>
-                    <a asp-area="Authenticated" asp-controller="User" asp-action="Delete" class="btn btn-danger" asp-route-id="@customer.Id">Delete</a>
+                <td>
+                    <a asp-area="Authenticated" asp-controller="User" asp-action="ResetPassword" onclick="confirm('Edit Successfully')" class="btn btn-primary">Reset Password</a>
+                    <a asp-area="Authenticated" asp-controller="User" asp-action="Delete" class="btn btn-danger" onclick="confirm('Delete Successfully')" asp-route-id="@customer.Id">Delete</a>
              </td>
         </tr>
     }

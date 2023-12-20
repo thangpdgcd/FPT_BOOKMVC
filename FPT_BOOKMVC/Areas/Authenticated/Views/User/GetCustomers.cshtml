@@ -20,11 +20,13 @@
 				<td>@customer.Email</td>
 				<td>@customer.FullName</td>
 				<td>@customer.Address</td>
-				<td><a asp-area="Authenticated" asp-controller="User" asp-action="ResetPassword" class="btn btn-primary">Reset Password</a>
+				<td>
+					<a asp-area="Authenticated" asp-controller="User" onclick="confirm('Edit Successfully')" asp-action="ResetPassword" class="btn btn-primary">Reset Password</a>
 					<a asp-area="Authenticated" 
 					   asp-controller="User" 
 					   asp-action="Delete"
 					   asp-route-id="@customer.Id"
+					   onclick="confirm('Delete Successfully')"
 					   class="btn btn-danger">Delete</a></td>
 			</tr>
 		}
