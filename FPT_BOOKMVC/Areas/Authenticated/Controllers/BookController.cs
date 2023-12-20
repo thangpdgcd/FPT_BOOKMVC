@@ -59,9 +59,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 PublishCompany = BookModel.PublishCompany
             };
 
-
-
-
             foreach (var bookitem in context.Books.ToList())
             {
                 if (book.Name == bookitem.Name)

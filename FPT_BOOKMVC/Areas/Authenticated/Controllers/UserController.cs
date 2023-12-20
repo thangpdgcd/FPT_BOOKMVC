@@ -22,22 +22,27 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         {
             _db = db;
             _userManager = userManager;
-            _roleManger = roleManager;
-        }
+            _roleManger = roleManager;//quản lý vai trò 
+		}
 
         public async Task<IActionResult> AdminIndex()
         {
-            // taking current login user id
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
+			// taking current login user id
+			
+			var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            // exception itself admin
-            var userList = _db.ApplicationUsers.Where(u => u.Id != claims.Value);
+
+			//Lấy và gán vai trò cho mỗi người dùng
+			// exception itself admin
+			var userList = _db.ApplicationUsers.Where(u => u.Id != claims.Value);
 
             foreach (var user in userList)
-            {
-                var userTemp = await _userManager.FindByIdAsync(user.Id);
-                var roleTemp = await _userManager.GetRolesAsync(userTemp);
+			{
+                //Lấy danh sách người dùng
+				var userTemp = await _userManager.FindByIdAsync(user.Id);
+				//Lấy và gán vai trò cho mỗi người dùng
+				var roleTemp = await _userManager.GetRolesAsync(userTemp);
                 user.Role = roleTemp.FirstOrDefault();
             }
 
