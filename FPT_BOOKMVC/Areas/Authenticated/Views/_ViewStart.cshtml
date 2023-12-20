@@ -1,4 +1,4 @@
-﻿{
+﻿
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
     Layout = "_LayoutAdmin";
@@ -19,5 +19,4 @@ else
 {
     Layout = "_Layout";
     ViewData["Title"] = "Nomal Page";
-}
 }

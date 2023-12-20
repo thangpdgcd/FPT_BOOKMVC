@@ -68,7 +68,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
 		public async Task<IActionResult> AddToCart(int id)
 		{
-			var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);
+			var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);//tạo đối tượng add thêm vào cart
+
 			if (book != null)
 			{
 				var cart_item = new Cart()
@@ -78,11 +79,10 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 					Quantity = 1
 				};
 
-				cart_item.Total = cart_item.Quantity * cart_item.Book.Price;
-
-				foreach (var item in context.Carts.Include(_ => _.Book).ToList())
+				cart_item.Total = cart_item.Quantity * cart_item.Book.Price; //tổng toltal
+				foreach (var item in context.Carts.Include(_ => _.Book).ToList()) //duyệt qua list
 				{
-					if (item.BookId == cart_item.BookId)
+					if (item.BookId == cart_item.BookId) //item sách đc thêm và đối tượng cartitem đc tạo
 					{
 						return RedirectToAction("CartIndex");
 					}

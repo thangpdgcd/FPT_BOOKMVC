@@ -23,8 +23,8 @@
 	<link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/util.css" asp-append-version="true">
 	<link rel="stylesheet" type="text/css" href="~/css/main.css" asp-append-version="true">
-	<link rel="stylesheet" type="text/css" href="_Layout2.cshtml.css" asp-append-version="true" />
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="_Layout2.cshtml.css" asp-append-version="true"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" asp-append-version="true"/>
 </head>
 <body class="animsition">
 	<header>
@@ -38,22 +38,14 @@
 
 						</div>
 
-						<div class="right-top-bar flex-w h-full">
-							<a href="#" class="flex-c-m trans-04 p-lr-25">
-								Help & FAQs
-							</a>
-
-							<a asp-area="Authenticated" asp-controller="User" asp-action="ProfileUser" class="flex-c-m trans-04 p-lr-25">
-								My Account
-							</a>
-						</div>
+						
 					</div>
 				</div>
 
 					</div>
 				</div>
 			</div>
-			<div class="wrap-menu-desktop how-shadow1">
+			<div class="wrap-menu-desktop how-shadow1" id="nav-des">
 				<nav class="limiter-menu-desktop container mb-3">
 
 					<!-- Logo desktop -->
@@ -120,22 +112,20 @@
 							</div>
 						</div>
 					</div>
-					<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-						<div class="container-search-header">
-							<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-								<img src="~/Images/icons/icon-close2.png" alt="CLOSE" style="margin-left:17%;margin-bottom:21px;">
+				<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+					<div class="container-search-header">
+						<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+							<img src="~/Images/icons/icon-close2.png" alt="CLOSE">
+						</button>
+
+						<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook">
+							<button type="submit" class="flex-c-m trans-04">
+								<i class="zmdi zmdi-search"></i>
 							</button>
-
-							<form class="wrap-search-header flex-w p-l-15" method="get" asp-area="Authenticated" asp-controller="Book" asp-action="SearchBook" >
-
-
-								<button type="submit" class="flex-c-m trans-04">
-									<i class="zmdi zmdi-search"></i>
-								</button>
-								<input class="plh3" type="text" name="Search" placeholder="Search..." style="font-size:20px">
-							</form>
-						</div>
+							<input class="plh3" type="text" name="Search" placeholder="Search...">
+						</form>
 					</div>
+				</div>
 				</nav>
 			</div>
 		</div>
