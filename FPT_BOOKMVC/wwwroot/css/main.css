@@ -194,7 +194,7 @@
 /*==================================================================
 [ Top bar ]*/
 .top-bar {
-    height: 40px;
+    height: 65px;
     background-color: rgba(134, 131, 132, 0.43);
 }
 
@@ -247,7 +247,7 @@
     background-color: transparent;
     width: 100%;
     height: 84px;
-    top: 40px;
+    top: 40;
     left: 0px;
     -webkit-transition: height 0.3s, background-color 0.3s;
     -o-transition: height 0.3s, background-color 0.3s;
@@ -273,6 +273,7 @@
 
 /*---------------------------------------------*/
 .limiter-menu-desktop {
+   
     height: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -3676,4 +3677,10 @@ input.num-product {
 {
     margin-top:13px;
     margin-left:60px;
+}
+.wrap-menu-desktop
+{
+    
+    background-color:white;
+    top:0;
 }

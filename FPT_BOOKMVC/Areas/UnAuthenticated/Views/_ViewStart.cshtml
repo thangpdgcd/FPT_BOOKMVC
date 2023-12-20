@@ -16,35 +16,160 @@
         Layout = "_Layout";
 		<!-- slider -->
 		<slider>
-			<div id="carouselExampleDark" class="carousel carousel-dark slide w-50 mx-auto" style="margin-top: 50px;">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			<container-slider>
+				<div id="carouselExampleDark" class="carousel carousel-dark slide w-50 mx-auto" style="margin-top: 50px;">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active" data-bs-interval="10000">
+							<img src="/Images/homepagebook1.png" class="d-block w-100" alt="image-home" >
+
+						</div>
+						<div class="carousel-item" data-bs-interval="2000">
+                            <img src="~/Images/homepagebook2.png" class="d-block w-100" alt="image-home">
+
+						</div>
+						<div class="carousel-item">
+                            <img src="~/Images/sliderbook.jpg" class="d-block w-100" alt="image-home">
+
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
 				</div>
-				<div class="carousel-inner">
-					<div class="carousel-item active" data-bs-interval="10000">
-						<img src="/Images/White Illustrative Creative Literature Project Presentation.png" class="d-block w-100" alt="image-home">
-
-					</div>
-					<div class="carousel-item" data-bs-interval="2000">
-						<img src="/Images/Forest background aesthetic novel book cover.jpg" class="d-block w-100" alt="image-home">
-
-					</div>
-					<div class="carousel-item">
-						<img src="/Images/1907b99e-4a9a-43ad-9147-4826942358fd_42e1b2e0-8377-4068-b03f-22a4e720e08e_Book11.JPG" class="d-block w-100" alt="image-home">
-
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
+			</container-slider>
 		</slider>
+		<!-- content -->
+		<content>
+            <div class="w3-container w3-content w3-center w3-padding-64"  id="band">
+                <h2 class="w3-wide">Role Of The Book</h2>
+                <p class="w3-opacity"><i>We love read book</i></p>
+                <p class="w3-justify">
+                    Books are an invaluable source of knowledge. We can learn and cultivate knowledge from books, thereby developing ourselves and contributing to society. Books not only help us increase our knowledge and expand our horizons, but also help us develop writing and thinking skills.
+                    However, books also have limitations. Some books can be overly persuasive, negatively affecting readers' thinking. Sometimes, some works also contain content that is inconsistent with the moral and cultural values of society
+                    To evaluate a good book, pay attention to its content. Books must be educational, convey correct information and have practical application. At the same time, books must also have high literary and aesthetic value, demonstrating the author's art of writing and creativity.
+                    In addition, the origin and printing quality of the book also deserve attention. Books must be produced according to standards, printed beautifully and sustainably to ensure readers can use them for a long time.
+                    Thus, books are an invaluable human asset, helping us increase our knowledge and develop ourselves.
+                </p>
+                <div class="w3-row w3-padding-32" id="role-content">
+                    <div class="w3-third">
+                        <p>Name</p>
+                        <img src="~/Images/bandbook.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                    </div>
+                    <div class="w3-third">
+                        <p>Name</p>
+                        <img src="~/Images/bandbook2.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+                    </div>
+                    <div class="w3-third">
+                        <p>Name</p>
+                        <img src="~/Images/bandbook3.png" class="w3-round" alt="Random Name" style="width:60%">
+                    </div>
+                </div>
+            </div>
+		</content>
+        <img src="~/Images/footer.jpg" class="footer-home"  />
+        <!-- footer -->
+        <footer class="nav-footer">
+            <div class="content">
+                <div class="grid">
+
+                    <div class="cell-md-4 grid justify-between align-middle">
+                        <a class="cell-xs-8 cell-md-16 logo-svg" href="https://reedsy.com">
+                            <img data-src="https://blog-cdn.reedsy.com/assets/logo/reedsy-fa352b0058b627de090ea8f4a81f0dcf75d40c93422cee41cfbea702900efa0e.svg" class="lazyload svg-logo entered loaded" alt="reedsy logo" width="98" height="32" data-ll-status="loaded" src="https://blog-cdn.reedsy.com/assets/logo/reedsy-fa352b0058b627de090ea8f4a81f0dcf75d40c93422cee41cfbea702900efa0e.svg">
+
+                        </a>
+                        <div class="social-links cell-xs-8 cell-md-16 text-right-below-md">
+                            <a class="social-icon" href="https://twitter.com/reedsyhq" \="" target="_blank" title="Twitter">
+                                <img data-src="https://blog-cdn.reedsy.com/assets/icons/twitter-98c39bcba296869ee562e6d4f61cae110490dfad9eb569a088d9e85ed627a003.svg" class="lazyload entered loaded" alt="Twitter" width="24" height="25" data-ll-status="loaded" src="https://blog-cdn.reedsy.com/assets/icons/twitter-98c39bcba296869ee562e6d4f61cae110490dfad9eb569a088d9e85ed627a003.svg">
+
+                            </a>
+                            <a class="social-icon" href="https://www.facebook.com/wearereedsy/" target="_blank" title="Facebook">
+                                <img data-src="https://blog-cdn.reedsy.com/assets/icons/facebook-094a9eff2c6a77918814c36bb0f564edae4da7280e529156f29fbb0c6cc5f6d3.svg" class="lazyload entered loaded" alt="Facebook" width="24" height="25" data-ll-status="loaded" src="https://blog-cdn.reedsy.com/assets/icons/facebook-094a9eff2c6a77918814c36bb0f564edae4da7280e529156f29fbb0c6cc5f6d3.svg">
+
+                            </a>
+                            <a class="social-icon" href="https://www.linkedin.com/company/reedsy" target="_blank" title="LinkedIn">
+                                <img data-src="https://blog-cdn.reedsy.com/assets/icons/linkedin-2eaaddac0f75f1cc0104a8997a4cd5bf1ac10aaa619948a61ac2005c46aa99e5.svg" class="lazyload entered loaded" alt="LinkedIn" width="24" height="25" data-ll-status="loaded" src="https://blog-cdn.reedsy.com/assets/icons/linkedin-2eaaddac0f75f1cc0104a8997a4cd5bf1ac10aaa619948a61ac2005c46aa99e5.svg">
+
+                            </a>
+                            <a class="social-icon" href="https://www.trustpilot.com/review/reedsy.com" target="_blank" title="Trustpilot">
+                                <img data-src="https://blog-cdn.reedsy.com/assets/icons/trustpilot-971ae5f813f48d2e1cd321d6e401f3cdb1cd120db964b4ca87115d6f03454550.svg" class="lazyload entered loaded" alt="Trustpilot" width="24" height="25" data-ll-status="loaded" src="https://blog-cdn.reedsy.com/assets/icons/trustpilot-971ae5f813f48d2e1cd321d6e401f3cdb1cd120db964b4ca87115d6f03454550.svg">
+
+                            </a>
+                        </div>
+                        <h5 class="cell-xs-16">
+                            <a href="https://reedsy.com/about/tou">Terms</a>
+                            <a href="https://reedsy.com/about/privacy" class="space-left-xs-sm space-right-xs-sm">Privacy</a>
+                            Reedsy Ltd. © 2023
+                        </h5>
+                    </div>
+
+                    <div class="cell hidden-until-md">
+                        <div class="grid">
+                            <div class="cell-sm-4">
+                                <h5>MARKETPLACE</h5>
+                                <div class="grid-column gutter-xs-md space-top-xs-md">
+                                    <a href="https://reedsy.com" target="_blank">Authors</a>
+                                    <a target="_blank" href="/publishers/">Publishers</a>
+                                    <a href="https://reedsy.com/join-our-community" target="_blank">Become a Freelancer</a>
+                                    <a href="https://reedsy.com/hire" target="_blank">Hire a Freelancer</a>
+                                </div>
+                            </div>
+
+                            <div class="cell-sm-3">
+                                <h5>LEARN</h5>
+                                <div class="grid-column gutter-xs-md space-top-xs-md">
+                                    <a href="/" target="_blank">Blog</a>
+                                    <a target="_blank" href="/learning/">Learning</a>
+                                    <a target="_blank" href="/live/">Reedsy Live</a>
+                                    <a target="_blank" href="/freelancer/">Freelancer</a>
+                                    <a target="_blank" href="/guide/">Guides</a>
+                                    <a href="https://reedsy.com/discovery/blog" target="_blank">Discovery</a>
+                                </div>
+                            </div>
+
+                            <div class="cell-sm-3">
+                                <h5>COMPANY</h5>
+                                <div class="grid-column gutter-xs-md space-top-xs-md">
+                                    <a href="https://reedsy.com/about" target="_blank">About</a>
+                                    <a href="https://reedsy.com/about/team" target="_blank">Team</a>
+                                    <a href="https://reedsy.com/about/press" target="_blank">Press</a>
+                                    <a target="_blank" href="/stories/">Stories</a>
+                                </div>
+                            </div>
+
+                            <div class="cell">
+                                <h5>RESOURCES</h5>
+                                <div class="grid space-top-xs-md">
+                                    <div class="cell grid-column gutter-xs-md">
+                                        <a target="_blank" href="/book-review-blogs/">Book Review Blogs</a>
+                                        <a target="_blank" href="/literary-agents/">Literary Agents</a>
+                                        <a target="_blank" href="/book-title-generator/">Title Generator</a>
+                                        <a target="_blank" href="/character-name-generator/">Name Generator</a>
+                                        <a target="_blank" href="/short-story-ideas/">Short Story Ideas</a>
+                                    </div>
+                                    <div class="cell grid-column gutter-xs-md">
+                                        <a target="_blank" href="/writing-contests/">Writing Contests</a>
+                                        <a target="_blank" href="/writing-exercises/">Writing Exercises</a>
+                                        <a target="_blank" href="https://blog.reedsy.com/creative-writing-prompts/">Writing Prompts</a>
+                                        <a href="https://reedsy.com/write-a-book">Writing Tool</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+      
+
     }
 }
