@@ -12996,7 +12996,7 @@ content {
 #band {
     margin-top: 13%;
     max-width: 811px;
-    margin-left: 170px;
+    margin-left: 190px;
     font: italic small-caps bold 16px/2 cursive;
 }
 .w3-wide{
@@ -13068,4 +13068,28 @@ content {
         display: block;
         margin-bottom: 10px;
     }
+}
+.py-5 {
+    margin-top:165px
+}
+
+
+.col-md-44 {
+    width:500px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    height:605px;
+}
+.col-md-45 {
+    width: 500px;
+    padding-left:24px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    height: 605px;
+}
+#account
+{
+    width:454px
 }

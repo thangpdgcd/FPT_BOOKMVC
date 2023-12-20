@@ -49,7 +49,6 @@
     <None Include="Areas\Authenticated\Views\PublishCompany\ViewCompany.cshtml" />
     <None Include="Areas\Authenticated\Views\User\GetCustomers.cshtml" />
     <None Include="Areas\Authenticated\Views\User\GetStoreOwners.cshtml" />
-    <None Include="Areas\Authenticated\Views\User\ProfileUser.cshtml" />
     <None Include="Areas\Authenticated\Views\User\ResetPassword.cshtml" />
   </ItemGroup>
 
