@@ -1410,7 +1410,7 @@ iframe {
 }
 
 .p-t-135, .p-tb-135, .p-all-135 {
-    padding-top: 135px;
+    padding-top: 90px;
 }
 
 .p-t-136, .p-tb-136, .p-all-136 {
@@ -12982,4 +12982,90 @@ iframe {
 /*---------------------------------------------*/
 .pointer-none {
     pointer-events: none;
+}
+/*slider*/
+slider {
+    font-size: 40px;
+}
+
+/*content*/
+content {
+    width: 100%;
+}
+
+#band {
+    margin-top: 13%;
+    max-width: 811px;
+    margin-left: 170px;
+    font: italic small-caps bold 16px/2 cursive;
+}
+.w3-wide{
+    text-align:center       
+}
+#role-content
+{
+    display:flex;
+    margin-left:53px;
+    padding-top:32px!important;
+    padding-bottom:32px!important;
+}
+.w3-third
+{
+    width:34%;
+   
+}
+/*footer*/
+
+.footer-home 
+{
+    margin-top:30px;
+
+    width:100%;
+}
+
+.nav-footer {
+    margin-top:20px;
+    width:100%;
+    background-color: #333; /* Change to your desired background color */
+    color: #fff; /* Change to your desired text color */
+    padding: 20px 0; /* Adjust the padding as needed */
+}
+
+    /* Style the content within the footer */
+    .nav-footer .content {
+        max-width: 1200px; /* Adjust as needed */
+        margin: 0 auto;
+    }
+
+    /* Style the grid within the footer */
+    .nav-footer .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px; /* Adjust the gap between grid items */
+    }
+
+/* Style the logo */
+.logo-svg img {
+    width: 100%; /* Make the logo responsive */
+}
+
+/* Style the social links */
+.social-links a {
+    margin-right: 10px; /* Adjust the spacing between social icons */
+}
+
+/* Style the headings and links in the footer */
+.nav-footer h5, .nav-footer a {
+    color: #fff; /* Change to your desired text color */
+    text-decoration: none;
+}
+
+    .nav-footer a:hover {
+        text-decoration: underline; /* Add underline on hover for links */
+    }
+@media screen and (max-width: 600px) {
+    .nav-link {
+        display: block;
+        margin-bottom: 10px;
+    }
 }
