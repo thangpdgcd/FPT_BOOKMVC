@@ -13,7 +13,7 @@ namespace FPT_BOOKMVC.Models
 		public int BookId { get; set; }
 
 
-		[ForeignKey("BookId")]
+		[ForeignKey("BookId")] //lk với cart
 		public Book Book { get; set; }
 		[Required]
 		public decimal Total { get; set; }

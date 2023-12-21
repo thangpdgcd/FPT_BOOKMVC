@@ -14,18 +14,19 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
     [Authorize(Roles = SD.StoreOwnerRole + "," + SD.AdminRole)]
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly ApplicationDbContext context; //không thể thay đổi sau khi gán giá trị
 
         public CategoryController(ApplicationDbContext context)
         {
             this.context = context;
         }
-        [HttpGet]
-        public async Task<IActionResult> CategoryIndex()
+        [HttpGet]// đến một đường dẫn cụ thể
+		public async Task<IActionResult> CategoryIndex()
         {
 
-            List <Category> category = await context.Categories.Where(x => x.IsApproved).ToListAsync();//để lưu trữ danh sách các danh mục đã được phê duyệt.
-																									   //Phương thức này được																				   // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
+          //đây là nơi danh sách//
+          List <Category> category = await context.Categories.Where(x => x.IsApproved).ToListAsync();//để lưu trữ danh sách các danh mục đã được phê duyệt.
+																																												   // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
 			return View(category);
         }
        
@@ -52,7 +53,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		public async Task<IActionResult> ViewCategory(int id)//: Định danh duy nhất của danh mục cần cập nhật.
 		{
             var category = await context.Categories.FirstOrDefaultAsync(x => x.CategoryId == id); //trùng với tham số id,  search danh mục
-
+																								  //trả về đối tượng đầu tiên hoặc một giá trị mặc định
 
 			if (category != null) //lấy thông tin từ cate gán model
             {
@@ -109,8 +110,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		[HttpPost("{id}/approve")] //xác định đường dẫn này để xử lý, id là 1 tham số đường đẫn
         public async Task<IActionResult> Approve(int id)
         {
-            var category = await context.Categories.FindAsync(id);
-            if (category == null)
+            var category = await context.Categories.FindAsync(id);//dựa trên khóa chính 
+			if (category == null)
             {
                 return NotFound();
             }
@@ -123,7 +124,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         }
 
         [HttpPost("{id}/reject")]
-        public async Task<IActionResult> Reject(int id)
+        public async Task<IActionResult> Reject(int id)//đối tương khóa chính là id
         {
             var category = await context.Categories.FindAsync(id);
             if (category == null)
