@@ -13093,3 +13093,19 @@ content {
 {
     width:454px
 }
+.footer-hotline {
+    background-color: #333;
+    color: white;
+    padding: 22px;
+    text-align: center;
+    margin-top: 320px;
+}
+
+.hotline-btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}

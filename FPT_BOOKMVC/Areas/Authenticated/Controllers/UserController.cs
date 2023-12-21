@@ -41,9 +41,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			{
                 //Lấy danh sách người dùng
 				var userTemp = await _userManager.FindByIdAsync(user.Id);
-				//Lấy và gán vai trò cho mỗi người dùng
-				var roleTemp = await _userManager.GetRolesAsync(userTemp);
-                user.Role = roleTemp.FirstOrDefault();
             }
 
 
@@ -77,9 +74,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             foreach (var user in userList)
             {
                 var userTemp = await _userManager.FindByIdAsync(user.Id);
-                var roleTemp = await _userManager.GetRolesAsync(userTemp);
-                user.Role = roleTemp.FirstOrDefault();
-            }
+			
+			}
 
             return View(userList.ToList());
 
@@ -101,9 +97,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             foreach (var user in userList)
             {
                 var userTemp = await _userManager.FindByIdAsync(user.Id);
-                var roleTemp = await _userManager.GetRolesAsync(userTemp);
-                user.Role = roleTemp.FirstOrDefault();
-            }
+			}
 
             return View(userList.ToList());
 
@@ -121,14 +115,29 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			foreach (var user in userList)
 			{
 				var userTemp = await _userManager.FindByIdAsync(user.Id);
-				var roleTemp = await _userManager.GetRolesAsync(userTemp);
-				user.Role = roleTemp.FirstOrDefault();
+				
+			}
+			return View(userList.ToList());
+		}
+
+		public async Task<IActionResult> HelpUser()
+		{
+			// taking current login user id
+			var claimsIdentity = (ClaimsIdentity)User.Identity;
+			var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+			// exception itself admin
+			var userList = _db.ApplicationUsers.Where(u => u.Id == claims.Value);
+
+			foreach (var user in userList)
+			{
+				var userTemp = await _userManager.FindByIdAsync(user.Id);
+
 			}
 
 
 			return View(userList.ToList());
 		}
-		// Reset pass
 		[HttpGet]
         [Authorize(Roles = SD.AdminRole)]
         public async Task<IActionResult> ResetPassword()

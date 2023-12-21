@@ -1,4 +1,6 @@
-﻿@font-face {
+﻿
+
+@font-face {
     font-family: Poppins-Regular;
     src: url('../fonts/Poppins/Poppins-Regular.ttf');
 }
@@ -517,7 +519,7 @@
 
 .wrap-search-header {
     top:0;
-    width: 400px;
+    width: 300px;
     max-width: 100%;
     height: 40px;
     border-radius:10px;
@@ -2144,6 +2146,7 @@ input.num-product {
 
 .cl12 {
     color: #ccc;
+    
 }
 
 /*//////////////////////////////////////////////////////////////////
