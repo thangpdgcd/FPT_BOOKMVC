@@ -36,7 +36,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 				return NotFound();
 			}
 
-			if (cart.Quantity < book.Quantity)
+			if (cart.Quantity < book.Quantity) //số lượng mua ít hơn số sách trong shop sẽ được thêm vào cart
 			{
 				cart.Quantity += 1;
 			}

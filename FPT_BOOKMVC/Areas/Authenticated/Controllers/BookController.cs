@@ -26,14 +26,14 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         [HttpGet]
         public async Task<IActionResult> BookIndex()
         {
-            var book = await context.Books.Include(_ => _.Category).Include(_ => _.PublishCompany).ToListAsync();
-            return View(book);
+            var book = await context.Books.Include(_ => _.Category).Include(_ => _.PublishCompany).ToListAsync();//để truy vấn dữ liệu từ cơ sở dữ liệu, bao gồm các liên kết đến,Hiển thị danh sách sách có sẵn trong cơ sở dữ liệu.
+			return View(book);
         }
-        [HttpGet]
-        public IActionResult CreateBook()
+        [HttpGet]//hiển thị danh sách sách, chi tiết sách và tìm kiếm sách dựa trên tên sách
+		public IActionResult CreateBook()
         {
-            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name"); //đưa ra từ create book
-            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
+            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name"); //dược sử dụng để truyền dữ liệu từ Controller đến View. 
+			ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
             return View();
         }
         [HttpPost]
@@ -41,8 +41,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", BookModel.CategoryId);
             ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", BookModel.PublishCompanyId);
-            string uniqueFileName = UploadedFile(BookModel);
-            var book = new Book()
+            string uniqueFileName = UploadedFile(BookModel);//là để tạo một tên duy nhất cho tệp tin được tải lên từ mô hình BookModel
+			var book = new Book()
             {
                 //lay các thuộc tính ra
                 Name = BookModel.Name,
@@ -59,13 +59,13 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 PublishCompany = BookModel.PublishCompany
             };
 
-            foreach (var bookitem in context.Books.ToList())
+            foreach (var bookitem in context.Books.ToList())//duyệt qua trong csdl
             {
                 if (book.Name == bookitem.Name)
                 {
-                    var NewQuantity = bookitem.Quantity.ToString();
-                    var StoredQuantity = book.Quantity.ToString();
-                    int ToStoredQuantity = int.Parse(StoredQuantity) + int.Parse(NewQuantity); //số lượng sách
+                    var NewQuantity = bookitem.Quantity.ToString();//chuyển đổi giá trị hiện tại, sách mới
+                    var StoredQuantity = book.Quantity.ToString();//sách cũ
+                    int ToStoredQuantity = int.Parse(StoredQuantity) + int.Parse(NewQuantity); //số lượng sách cũ và mới
                     bookitem.Quantity = ToStoredQuantity;
                     bookitem.UpdateDate = book.UpdateDate;
                     await context.SaveChangesAsync();
@@ -73,23 +73,25 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 }
             }
 
-            context.Books.Attach(book); //đính kèm
-            context.Entry(book).State = EntityState.Added;
-            await context.Books.AddAsync(book);
+            context.Books.Attach(book); //Đối tượng book đã được đính kèm vào context
+			context.Entry(book).State = EntityState.Added;//Xác định trạng thái của đối tượng book trong ngữ cảnh của cơ sở dữ liệu.
+			await context.Books.AddAsync(book);
             await context.SaveChangesAsync();
             return RedirectToAction("BookIndex");
         }
         [HttpGet]
         public async Task<IActionResult> ViewBook(int id)
         {
-            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name");
-            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
-            var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);
-            if (book != null)
+			//để hiển thị danh sách danh mục
+            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name");//nối bảng
+			ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");// selectlistđược sử dụng để tạo ra một danh sách chọn có thể hiển thị tên của công ty xuất bản 
+			var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);//được truyền vào
+            //truy vấn đối tượng đầu tiên 
+			if (book != null)
             {
                 //get id của sách lấy cacs attribute thuộc tính
                 var viewmodel = new UpdateBookView()
-                {
+                {//gán kết quả truy vấn vào book
                     BookId = book.BookId,
                     Name = book.Name,
                     Quantity = book.Quantity,
@@ -113,9 +115,9 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         [HttpPost]
         public async Task<IActionResult> ViewBook(UpdateBookView model)
         {
-            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", model.CategoryId);
-            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);//render du lieu ra view
-            var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == model.BookId);
+            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", model.CategoryId);//dropdowlist
+            ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);
+            var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == model.BookId); //= với dt update model
             string change_img = UploadedFile(model);
             if (book != null)
             {
@@ -124,7 +126,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 book.Price = model.Price;
                 book.Description = model.Description;
                 book.UpdateDate = model.UpdateDate;
-                book.Author = model.Author;
+                book.Author = model.Author;     
                 if (change_img != null)
                 {
                     book.Image = change_img;
@@ -265,7 +267,7 @@ model.FronImage.CopyTo(fileStream): Sao chép dữ liệu từ luồng dữ li�
 
         public async Task<IActionResult> SearchBook(string Search)
         {
-            var search_list = new List<Book>();
+            var search_list = new List<Book>();//tạo list trống chứa kq tìm kiếm
             if (Search == null || Search == "")
             {
                 return RedirectToAction("BookProduct");
@@ -276,8 +278,10 @@ model.FronImage.CopyTo(fileStream): Sao chép dữ liệu từ luồng dữ li�
                 {
                     search_list.Add(book);
                 }
-            }
-            return View(search_list);
+				//if (book.Name.Contains(Search)): Kiểm tra xem tên của mỗi đối tượng Book có chứa chuỗi tìm kiếm (Search) hay không.
+                //Nếu có, đối tượng Book này được thêm vào danh sách search_list.
+			}
+			return View(search_list);
         }
     }
 }
