@@ -32,7 +32,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         [HttpGet]
         public IActionResult CreateBook()
         {
-            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name");
+            ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name"); //đưa ra từ create book
             ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name");
             return View();
         }
@@ -65,7 +65,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 {
                     var NewQuantity = bookitem.Quantity.ToString();
                     var StoredQuantity = book.Quantity.ToString();
-                    int ToStoredQuantity = int.Parse(StoredQuantity) + int.Parse(NewQuantity);
+                    int ToStoredQuantity = int.Parse(StoredQuantity) + int.Parse(NewQuantity); //số lượng sách
                     bookitem.Quantity = ToStoredQuantity;
                     bookitem.UpdateDate = book.UpdateDate;
                     await context.SaveChangesAsync();
@@ -73,7 +73,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                 }
             }
 
-            context.Books.Attach(book);
+            context.Books.Attach(book); //đính kèm
             context.Entry(book).State = EntityState.Added;
             await context.Books.AddAsync(book);
             await context.SaveChangesAsync();
@@ -211,7 +211,23 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             }
             return uniqueFileName;
         }
-        [HttpGet]
+
+		/*
+        1. Mục đích: Xử lý tệp tin hình ảnh được tải lên từ mô hình Book và lưu trữ nó trong thư mục wwwroot/Images với tên tệp tin duy nhất.
+Tham số:
+Book model: Đối tượng Book chứa thông tin về hình ảnh cần được xử lý.
+        2.Xác định thư mục lưu trữ và tạo tên duy nhất cho tệp tin hình ảnh.
+Mô tả:
+uploadsFolder: Là đường dẫn đến thư mục wwwroot/Images, nơi tệp tin sẽ được lưu trữ.
+uniqueFileName: Tạo tên duy nhất cho tệp tin bằng cách sử dụng Guid.NewGuid().ToString() để tạo một chuỗi ngẫu nhiên và ghép nó với tên gốc của tệp tin từ model.FronImage.FileName.
+        3.Mục đích: Lưu trữ tệp tin hình ảnh vào thư mục wwwroot/Images.
+Mô tả:
+filePath: Đường dẫn đầy đủ đến tệp tin mới được tạo.
+using (var fileStream = new FileStream(filePath, FileMode.Create)): Sử dụng FileStream để tạo và mở một luồng để ghi dữ liệu vào tệp tin.
+model.FronImage.CopyTo(fileStream): Sao chép dữ liệu từ luồng dữ liệu của model.FronImage (hình ảnh tải lên) vào tệp tin mới được tạo.
+        4.Phương thức trả về uniqueFileName, cho phép mã gọi phương thức này sử dụng tên tệp tin đã được tạo trong quá trình xử lý.
+        */
+		[HttpGet]
         public async Task<IActionResult> BookProduct()
         {
             var book = await context.Books.ToListAsync();
