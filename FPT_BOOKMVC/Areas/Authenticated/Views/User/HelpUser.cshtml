@@ -6,29 +6,41 @@
 <h1>Contact</h1>
 <br>
 <div class="w3-container w3-padding-64" id="contact">
-    <p>We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste. Do not hesitate to contact us.</p>
-    <p class="w3-text-blue-grey w3-large"><b>Catering Service, 42nd Living St, 43043 New York, NY</b></p>
-    <p>You can also contact us by phone 00553123-2323 or email catering@catering.com, or you can send us a message here:</p>
+    <p>Welcome to our Support and FAQ Page! Here, we have compiled the most important information to help you experience online book shopping conveniently and with peace of mind.</p>
+    <p class="w3-text-blue-grey w3-large"><b>Frequently Asked Questions (FAQs)</b></p>
+    <div>
+        <h4>1. Searching and Choosing Books:</h4>
+        <p>How to search for books on your site?</p>
+        <p>How to read customer reviews of a book?</p>
+    </div>
+
+    <div>
+        <h4>2.Account and Login:</h4>
+        <p>How to create a new account?</p>
+        <p>Why do I need to log in to place an order??</p>
+    </div>
+
+    <div>
+        <h4>3. Other Support:</h4>
+        <p>How to contact your support team?</p>
+        <p>How to recommend a new book for your library?</p>
+    </div>
+    <p>You can also contact us by phone +84 0372 713 679 or email GroupDevelopment@example.com, or you can send us a message here:</p>
     <form action="/action_page.php" target="_blank" 
     style="border:1px solid;
 padding:10px;
 border-radius:5px;
 ">
+        <h3>Customer support</h3>
         <p>
             <label>Name<i style="color:red">*</i></label/>
             <input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name" style="border:1px solid; padding:10px ;margin:5px ;border-radius:7px"></p>
-        <p>
-            <label>How many people<i style="color:red">*</i></label/>
-            <input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People" style="border:1px solid;padding:10px;margin:5px;border-radius:7px"></p>
-        <p>
-            <label>Date Time<i style="color:red">*</i></label/>
-            <input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2023-11-16T20:00" style="border:1px solid;padding:10px;border-radius:7px;margin:5px"></p>
         <p>
             <label>Message now <i style="color:red">*</i> </label/>
              <input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message" style="border:1px solid;padding:10px;border-radius:7px;margin:5px"></p>
         <p>
           
-            <a class="w3-button w3-light-grey w3-section" type="submit" id="hotline" style="border:1px solid;padding:10px;border-radius:7px;margin:5px" onclick="ShowMessage(alert('Hệ Thống Đang Bảo Trì')); Notfound()">SEND MESSAGE</a></p>
+            <a class="w3-button w3-light-grey w3-section" type="submit" id="hotline" style="border:1px solid;padding:10px;border-radius:7px;margin:5px" onclick="ShowMessage(alert('The system is maintenance. Sorry for the inconvenience!')); Notfound()">SEND MESSAGE</a></p>
            <label id="result"></label>
     </form>
     <div style="padding-top:150px"></div>
@@ -36,7 +48,7 @@ border-radius:5px;
 <script>
     ShowMessage = () => { 
       
-        var b= document.getElementById('result').innerHTML='Vui Lòng Liên Hệ hotline: +84 372713679 hoặc Mail:thangpdgcd201784@fpt.edu.vn - Để Được Hỗ Trợ - Xin Cảm Ơn'
+        var b= document.getElementById('result').innerHTML='Please Contact hotline: +84 0372 713 679 or email: GroupDevelopment@example.com - For Support - Thank You'
       
     ShowMessage();
  }
