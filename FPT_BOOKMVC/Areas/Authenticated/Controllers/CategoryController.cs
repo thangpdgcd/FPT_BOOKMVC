@@ -26,7 +26,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
           //đây là nơi danh sách//
           List <Category> category = await context.Categories.Where(x => x.IsApproved).ToListAsync();//để lưu trữ danh sách các danh mục đã được phê duyệt.
-																																												   // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
+            // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
 			return View(category);
         }
        

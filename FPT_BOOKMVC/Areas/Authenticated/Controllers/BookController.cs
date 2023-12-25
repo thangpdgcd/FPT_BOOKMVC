@@ -151,6 +151,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             var book = await context.Books.FindAsync(model.BookId);
 
             if (book != null)
+            if (book != null)
             {
                 context.Books.Remove(book);
 

@@ -107,7 +107,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			{
 				context.Carts.Remove(cart_item);
 
-
 				await context.SaveChangesAsync();
 
 				return RedirectToAction("CartIndex");
