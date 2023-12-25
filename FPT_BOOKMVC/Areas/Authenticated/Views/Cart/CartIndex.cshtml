@@ -21,6 +21,10 @@
 								<tr class="table_row">
 									<td class="column-1">
 										<a asp-area="Authenticated" asp-controller="Cart" asp-action="DeleteCartItem" asp-route-id="@item.BookId">
+											@{
+												//asp-route-id="@item.BookId
+												//Đây là một cách để truyền tham số cho action. Trong trường hợp này, tham số là "id" và giá trị của nó được lấy từ thuộc tính "BookId" của đối tượng "item".
+											}
 											<div class="how-itemcart1">
 												<img src="~/Images/@item.Book.Image" alt="@item.Book.Description">
 											</div>
