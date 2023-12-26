@@ -81,7 +81,7 @@ namespace FPT_BOOKMVC.Areas.Identity.Pages.Account
             {
                 Input = new InputModel
                 {
-                    Code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code))
+                    Code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code)) //utf8 mã hóa kí tự
                 };
                 return Page();
             }

@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-
 namespace FPT_BOOKMVC.Models
 {
-    public class Book
+  public class Book
     {
         [Key]
         public int BookId { get; set; }
@@ -12,7 +11,7 @@ namespace FPT_BOOKMVC.Models
         [Required]
         public int Quantity { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public decimal Price { get; set; }  
         [Required]
         public string Description { get; set; }
         [Required]
