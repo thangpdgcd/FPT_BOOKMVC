@@ -12,7 +12,6 @@ namespace FPT_BOOKMVC.Models
 		[Required]
 		public int BookId { get; set; }
 
-
 		[ForeignKey("BookId")] //lk với cart
 		public Book Book { get; set; }
 		[Required]

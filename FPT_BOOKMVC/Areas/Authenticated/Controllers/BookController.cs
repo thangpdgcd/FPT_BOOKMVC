@@ -117,8 +117,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         {
             ViewBag.Category_id = new SelectList(context.Categories, "CategoryId", "Name", model.CategoryId);//dropdowlist
             ViewBag.Company_id = new SelectList(context.PublicCompanies, "PublishingCompanyId", "Name", model.PublishCompanyId);
-            var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == model.BookId); //= với dt update model
-            string change_img = UploadedFile(model);
+            var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == model.BookId); //= với dt update model //lấyPhầnTửĐầuTiên
+			string change_img = UploadedFile(model);
             if (book != null)
             {
                 book.Name = model.Name;
@@ -150,7 +150,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
         {
             var book = await context.Books.FindAsync(model.BookId);
 
-            if (book != null)
             if (book != null)
             {
                 context.Books.Remove(book);

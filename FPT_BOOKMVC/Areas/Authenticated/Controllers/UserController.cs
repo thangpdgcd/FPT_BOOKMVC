@@ -117,7 +117,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		public async Task<IActionResult> ProfileUser()
 		{
 			// taking current login user id
-			var claimsIdentity = (ClaimsIdentity)User.Identity;
+			var claimsIdentity = (ClaimsIdentity)User.Identity;// xác nhận danh tính người dùng
 			var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);//Lấy thông tin định danh của người dùng hiện tại:
 
 			// exception itself admin
@@ -147,7 +147,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			}
 
 
-			return View(userList.ToList());
+			return View(userList.ToList());//tập hợp dữ liệu hoặc một chuỗi 
 		}
 		[HttpGet]
         [Authorize(Roles = SD.AdminRole)]
