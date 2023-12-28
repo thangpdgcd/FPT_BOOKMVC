@@ -35,12 +35,10 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			{
 				return NotFound();
 			}
-
-			if (cart.Quantity < book.Quantity) //số lượng mua ít hơn số sách trong shop sẽ được thêm vào cart
-			{
+			//if buy quantity < book of shop -> add
+			if (cart.Quantity < book.Quantity){
 				cart.Quantity += 1;
 			}
-
 			cart.Total = cart.Quantity * cart.Book.Price;
 			await context.SaveChangesAsync();
 			return RedirectToAction(nameof(CartIndex));
@@ -68,7 +66,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 
 		public async Task<IActionResult> AddToCart(int id)
 		{
-			var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);//tạo đối tượng add thêm vào cart
+			var book = await context.Books.FirstOrDefaultAsync(x => x.BookId == id);
 
 			if (book != null)
 			{
@@ -78,27 +76,22 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 					Book = book,
 					Quantity = 1
 				};
-
-				cart_item.Total = cart_item.Quantity * cart_item.Book.Price; //tổng toltal
-				foreach (var item in context.Carts.Include(_ => _.Book).ToList()) //duyệt qua list
+				cart_item.Total = cart_item.Quantity * cart_item.Book.Price; 
+				foreach (var item in context.Carts.Include(_ => _.Book).ToList()) 
 				{
-					if (item.BookId == cart_item.BookId) //item sách đc thêm và đối tượng cartitem đc tạo
+					if (item.BookId == cart_item.BookId) 
 					{
 						return RedirectToAction("CartIndex");
 					}
 				}
-
 				await context.Carts.AddAsync(cart_item);
 				await context.SaveChangesAsync();
 
 				Thread.Sleep(2500);
 				return RedirectToAction("BookProduct", "Book");
-
 			}
-
 			return RedirectToAction("CartIndex");
 		}
-
 		public async Task<IActionResult> DeleteCartItem(int id)
 		{
 			var cart_item = await context.Carts.FirstOrDefaultAsync(_ => _.BookId == id);

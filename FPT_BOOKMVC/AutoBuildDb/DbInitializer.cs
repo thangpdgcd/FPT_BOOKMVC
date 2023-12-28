@@ -23,11 +23,9 @@ namespace FPT_BOOKMVC.AutoBuildDb
 		}
         public void Initializer()
 		{
-			// checking database, if not migration then migrate
-			// Kiểm tra xem có bất kỳ sự thay đổi cơ sở dữ liệu nào chưa được thực
-            // hiện(pending migrations) hay không, và nếu có, thực hiện các migrations để đảm
-            // bảo cơ sở dữ liệu được cập nhật đến phiên bản mới nhất.
-
+			// checking update database, if not migration then migrate
+			// Kiểm tra xem có bất kỳ bản cập nhậtcó sự thay đổi cơ sở dữ liệu nào chưa được thực
+			//a least 1 update await then _db.Database.Migrate() ; have taking (migrate) the db 
 			try
 			{
 				if (_db.Database.GetPendingMigrations().Count() > 0) _db.Database.Migrate();
@@ -41,16 +39,12 @@ namespace FPT_BOOKMVC.AutoBuildDb
             if (_db.Roles.Any(r => r.Name == SD.AdminRole)) return;
             if (_db.Roles.Any(r => r.Name == SD.StoreOwnerRole)) return;
             if (_db.Roles.Any(r => r.Name == SD.CustomerRole)) return;
-			//Kiểm tra xem có vai trò "Admin", "StoreOwner", và "Customer" đã tồn tại trong bảng Roles hay chưa.
-			//Nếu tồn tại, thì không làm gì cả và kết thúc hàm.
-			//Ngược lại, tiếp tục triển khai các tạo mới vai trò và người dùng.
+			
 
-
-
-			//Nếu các vai trò chưa tồn tại, tạo mới chúng bằng cách sử dụng 
+		
 			// this will deploy if there no have any role yet
-			_roleManager.CreateAsync(new IdentityRole(SD.AdminRole)).GetAwaiter().GetResult();
-            _roleManager.CreateAsync(new IdentityRole(SD.StoreOwnerRole)).GetAwaiter().GetResult();
+			_roleManager.CreateAsync(new IdentityRole(SD.AdminRole)).GetAwaiter().GetResult();//display INotifyCompletion: async-await
+			_roleManager.CreateAsync(new IdentityRole(SD.StoreOwnerRole)).GetAwaiter().GetResult();
             _roleManager.CreateAsync(new IdentityRole(SD.CustomerRole)).GetAwaiter().GetResult();
 
             // create user admin

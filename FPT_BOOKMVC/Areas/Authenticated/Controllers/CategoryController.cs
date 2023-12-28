@@ -14,34 +14,31 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
     [Authorize(Roles = SD.StoreOwnerRole + "," + SD.AdminRole)]
     public class CategoryController : Controller
     {
-        private readonly ApplicationDbContext context; //không thể thay đổi sau khi gán giá trị
+        private readonly ApplicationDbContext context; 
 
         public CategoryController(ApplicationDbContext context)
         {
             this.context = context;
         }
-        [HttpGet]// đến một đường dẫn cụ thể
+        [HttpGet]
 		public async Task<IActionResult> CategoryIndex()
-        {
-
-          //đây là nơi danh sách//
-          List <Category> category = await context.Categories.Where(x => x.IsApproved).ToListAsync();//để lưu trữ danh sách các danh mục đã được phê duyệt.
-            // *gọi để chuyển đổi kết quả của truy vấn thành một danh sách(List)
+        { 
+          List <Category> category = await context.Categories.Where(x => x.IsApproved).ToListAsync();
 			return View(category);
         }
        
-        [HttpGet] //gửi yêu cầu qua URL.
+        [HttpGet] 
         public IActionResult CreateCategory()
         {
             return View();
         }
-        [HttpPost] //dữ liệu từ máy khách(client) lên máy chủ(server) để xử lý.
+        [HttpPost] 
 
-        public async Task<IActionResult> CreateCategory(AddCategoryViewModel CategoryModel) //lấy dữ liệumodel
+        public async Task<IActionResult> CreateCategory(AddCategoryViewModel CategoryModel)
         {
-            var category = new Category() //tạo cat để nhập dl từ add
+            var category = new Category() 
             {
-                Name = CategoryModel.Name,//gán
+                Name = CategoryModel.Name,
 				Description = CategoryModel.Description
             };
 
@@ -49,30 +46,27 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             await context.SaveChangesAsync();
             return RedirectToAction("CategoryIndex");
         }
-        [HttpGet]// hiển thị trang cập nhật
-		public async Task<IActionResult> ViewCategory(int id)//: Định danh duy nhất của danh mục cần cập nhật.
+        [HttpGet]
+		public async Task<IActionResult> ViewCategory(int id)
 		{
-            var category = await context.Categories.FirstOrDefaultAsync(x => x.CategoryId == id); //trùng với tham số id,  search danh mục
-																								  //trả về đối tượng đầu tiên hoặc một giá trị mặc định
-
-			if (category != null) //lấy thông tin từ cate gán model
+            var category = await context.Categories.FirstOrDefaultAsync(x => x.CategoryId == id); 
+			if (category != null)
             {
-                var viewmodel = new UpdateCategoryView() //truyền dữ liệu cập nhật
+                var viewmodel = new UpdateCategoryView()
                 {
                     CategoryId = category.CategoryId,
                     Name = category.Name,
                     Description = category.Description
                 };
-
-                return await Task.Run(() => View("ViewCategory", viewmodel)); //truyền đối tượng viewmodel //trả về trang cập nhật với dữ liệu đã được chuẩn bị.
-
+                //create task new and run on a threadpool, doesn't block main thread ,not create thread same
+                return await Task.Run(() => View("ViewCategory", viewmodel));
 			}
             return RedirectToAction("CategoryIndex");
         }
         [HttpPost]
         public async Task<IActionResult> ViewCategory(UpdateCategoryView model)
         {
-            var category = await context.Categories.FindAsync(model.CategoryId); //Lấy danh mục cần cập nhật từ cơ sở dữ liệu. lấy từ cat để dựa trên id từ model
+            var category = await context.Categories.FindAsync(model.CategoryId);
 			if (category != null)
             {
                 category.Name = model.Name;
@@ -104,39 +98,39 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		[HttpGet]
 		public async Task<IActionResult> CategoryApproved()
 		{
-			var category = await context.Categories.ToListAsync();// danh sách đã được phê duyệt
+            //list was approve
+			var category = await context.Categories.ToListAsync();
 			return View(category);
 		}
-		[HttpPost("{id}/approve")] //xác định đường dẫn này để xử lý, id là 1 tham số đường đẫn
+
+        //identify URL to handle, id is a parameter
+		[HttpPost("{id}/approve")] 
         public async Task<IActionResult> Approve(int id)
         {
-            var category = await context.Categories.FindAsync(id);//dựa trên khóa chính 
+            var category = await context.Categories.FindAsync(id);
 			if (category == null)
             {
                 return NotFound();
             }
-            category.IsApproved = true;//phê duyệt một danh mục bằng cách đặt thuộc tính
+            category.IsApproved = true;
 			context.SaveChanges();
 
-            // code to notify store owner of category approval here
-
+        
             return RedirectToAction(nameof(CategoryApproved));
         }
 
         [HttpPost("{id}/reject")]
-        public async Task<IActionResult> Reject(int id)//đối tương khóa chính là id
+        public async Task<IActionResult> Reject(int id)
         {
             var category = await context.Categories.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
             }
-
             context.Categories.Remove(category);
             context.SaveChanges();
 
             // code to notify store owner of category rejection here
-
             return RedirectToAction(nameof(CategoryApproved));
         }
     }

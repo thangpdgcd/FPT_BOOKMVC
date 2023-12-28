@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model List<FPT_BOOKMVC.Models.Category>;
 @{
+    //if user current false then user current have role admin -> {run} 
 }
 
 <h1>List Of Approved Categories</h1>
@@ -25,6 +26,8 @@
                 <td>@category.Description</td>
                 <td>@category.IsApproved</td>
                 <td>
+                    
+              
                     @if (!category.IsApproved && User.IsInRole(SD.AdminRole))
                     {
                         <form method="post" action="@Url.Action("Approve", new { id = category.CategoryId })">

@@ -28,11 +28,18 @@ namespace FPT_BOOKMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> OrderIndex()
         {
-            var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();//ham noi bang
+            //tabble join
+            var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();
             return View(order_customer_detail);
         }
+		[HttpGet]
+		public async Task<IActionResult> Historyorder()
+		{
+			var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();
+			return View(order_customer_detail);
+		}
 
-        public async Task<IActionResult> OrderBook()
+		public async Task<IActionResult> OrderBook()
         {
 
             var identity = (ClaimsIdentity)User.Identity;
@@ -48,12 +55,12 @@ namespace FPT_BOOKMVC.Controllers
                 Address = user.Address,
                 User = user
             };
+
             if (!context.Customers.Contains(customer))
             {
                 await context.Customers.AddAsync(customer);
                 await context.SaveChangesAsync();
             }
-
 
             var order = new Order()
             {
@@ -97,10 +104,8 @@ namespace FPT_BOOKMVC.Controllers
                 {
                     context.Books.Remove(stored_book);
                 }
-
                 await context.SaveChangesAsync();
             }
-
             await context.SaveChangesAsync();
             return RedirectToAction("BookProduct", "Book");
         }
@@ -113,12 +118,10 @@ namespace FPT_BOOKMVC.Controllers
             {
                 return NotFound();
             }
-
             foreach (var orderDetail in order_customer_detail)
             {
                 context.OrderDetails.Remove(orderDetail);
             }
-
             await context.SaveChangesAsync();
 
             return RedirectToAction(nameof(OrderIndex));
