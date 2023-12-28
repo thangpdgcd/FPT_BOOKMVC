@@ -13,7 +13,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 	public class PublishCompanyController : Controller
 	{
 		private readonly ApplicationDbContext context;
-
 		public PublishCompanyController(ApplicationDbContext context)
 		{
 			this.context = context;
