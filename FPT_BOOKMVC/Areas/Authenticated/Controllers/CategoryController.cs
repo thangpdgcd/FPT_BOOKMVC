@@ -58,8 +58,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
                     Name = category.Name,
                     Description = category.Description
                 };
-                //create task new and run on a threadpool, doesn't block main thread ,not create thread same
-                return await Task.Run(() => View("ViewCategory", viewmodel));
+                //create task new and run on a threadpool ,not create thread same
+                return View("ViewCategory", viewmodel);
 			}
             return RedirectToAction("CategoryIndex");
         }
@@ -102,7 +102,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			var category = await context.Categories.ToListAsync();
 			return View(category);
 		}
-
         //identify URL to handle, id is a parameter
 		[HttpPost("{id}/approve")] 
         public async Task<IActionResult> Approve(int id)
@@ -114,9 +113,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             }
             category.IsApproved = true;
 			context.SaveChanges();
-
-        
-            return RedirectToAction(nameof(CategoryApproved));
+            return RedirectToAction("CategoryApproved");
         }
 
         [HttpPost("{id}/reject")]
@@ -131,7 +128,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             context.SaveChanges();
 
             // code to notify store owner of category rejection here
-            return RedirectToAction(nameof(CategoryApproved));
+            return RedirectToAction("CategoryApproved");
         }
     }
 }

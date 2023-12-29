@@ -57,7 +57,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 					Adress = company.Adress,
 				};
 
-				return await Task.Run(() => View("ViewCompany", viewmodel));
+				return View("ViewCompany", viewmodel);
 			}
 
 			return RedirectToAction("CompanyIndex");

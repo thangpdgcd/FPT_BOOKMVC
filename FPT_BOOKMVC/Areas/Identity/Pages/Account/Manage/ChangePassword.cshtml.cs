@@ -96,7 +96,7 @@ namespace FPT_BOOKMVC.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) //check object in model have data true false
             {
                 return Page();
             }
@@ -121,7 +121,7 @@ namespace FPT_BOOKMVC.Areas.Identity.Pages.Account.Manage
             _logger.LogInformation("User changed their password successfully.");
             StatusMessage = "Your password has been changed.";
 
-            return RedirectToPage();
+            return RedirectToPage();    
         }
     }
 }

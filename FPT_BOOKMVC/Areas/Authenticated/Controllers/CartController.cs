@@ -41,7 +41,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			}
 			cart.Total = cart.Quantity * cart.Book.Price;
 			await context.SaveChangesAsync();
-			return RedirectToAction(nameof(CartIndex));
+			return RedirectToAction("CartIndex");
 
 		}
 		public async Task<IActionResult> Minus(int cartId)
@@ -61,7 +61,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 				await context.SaveChangesAsync();
 			}
 
-			return RedirectToAction(nameof(CartIndex));
+			return RedirectToAction("CartIndex");
 		}
 
 		public async Task<IActionResult> AddToCart(int id)

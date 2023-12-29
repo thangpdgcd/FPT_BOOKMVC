@@ -22,6 +22,8 @@ namespace FPT_BOOKMVC.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+       
+
 
 
     }
