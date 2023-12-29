@@ -106,9 +106,8 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 					PublishCompanyId = book.PublishCompanyId
 				};
 				global_image_change_url = book.Image;
-				return await Task.Run(() => View("ViewBook", viewmodel));
+				return View("ViewBook", viewmodel);
 			}
-
 			return RedirectToAction("BookIndex");
 		}
 		[HttpPost]
@@ -165,7 +164,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		private string UploadedFile(AddBookViewModel model)
 		{
 			string uniqueFileName = null;
-
 			if (model.FronImage != null)
 			{
 				string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "Images");
@@ -175,7 +173,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 				{
 					model.FronImage.CopyTo(fileStream);
 				}
-
 			}
 			return uniqueFileName;
 		}
@@ -241,12 +238,9 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 					PublishCompanyId = book.PublishCompanyId
 
 				};
-
-				return await Task.Run(() => View("BookProductDetail", viewmodel));
+				return View("BookProductDetail", viewmodel);
 			}
-
 			return RedirectToAction("BookProduct");
-
 		}
 
 		public async Task<IActionResult> SearchBook(string Search)

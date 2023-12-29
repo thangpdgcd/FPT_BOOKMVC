@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using FPT_BOOKMVC.Data;
 using FPT_BOOKMVC.Utils;
 using FPT_BOOKMVC.ModelsCRUD.User;
+using FPT_BOOKMVC.Models;
 
 
 namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
@@ -24,19 +25,19 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 			_userManager = userManager;
             _roleManger = roleManager;
 		}
+		
 		public async Task<IActionResult> AdminIndex()
 		{
 			// taking current login user id -> claim identity of System.Security.Claims;
 			var claimsIdentity = (ClaimsIdentity)User.Identity;
 
-			//search claim contain id user information 
-			var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+			//search claim contain id user information - attribute claimtype
+			var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier); 
 
 			//get userlist of db, exclude(-) user current
 			var userList = _db.ApplicationUsers.Where(u => u.Id != claims.Value);
 			foreach (var user in userList)
 			{
-                
 				var userTemp = await _userManager.FindByIdAsync(user.Id);
             }
 			return View(userList.ToList());
@@ -48,7 +49,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
             var user = await _userManager.FindByIdAsync(id);
             if (user == null) return NotFound();
             await _userManager.DeleteAsync(user);
-            return RedirectToAction(nameof(AdminIndex));
+            return RedirectToAction("AdminIndex");
         }
 
 		[HttpGet]
@@ -76,7 +77,6 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 		// taking current login user id
 		var claimsIdentity = (ClaimsIdentity)User.Identity;
 		var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-
 		var userList = _db.ApplicationUsers
 			.Where(u => u.Id != claims.Value)// id!= value curent
 			.ToList() 
@@ -93,28 +93,27 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 	[HttpGet]
 	public async Task<IActionResult> ProfileUser()
 	{
-		// taking current login user id
-		var claimsIdentity = (ClaimsIdentity)User.Identity;
-		var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+			// taking current login user id
+			var claimsIdentity = (ClaimsIdentity)User.Identity;
+			var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
 
-		var userList = _db.ApplicationUsers.Where(u => u.Id == claims.Value);
+			var userList = _db.ApplicationUsers.Where(u => u.Id == claims.Value);
 
-		foreach (var user in userList)
-		{
-			var userTemp = await _userManager.FindByIdAsync(user.Id);
+			foreach (var user in userList)
+			{
+				var userTemp = await _userManager.FindByIdAsync(user.Id);
+
+			}
+			return View(userList.ToList());
 
 		}
-		return View(userList.ToList());
-	}
 
 	public async Task<IActionResult> HelpUser()
 	{
 		// taking current login user id
 		var claimsIdentity = (ClaimsIdentity)User.Identity;
 		var claims = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-
-		
 		var userList = _db.ApplicationUsers.Where(u => u.Id == claims.Value);
 
 		foreach (var user in userList)
@@ -148,7 +147,7 @@ namespace FPT_BOOKMVC.Areas.Authenticated.Controllers
 				if (removePasswordResult.Succeeded)
 				{
 						var addPasswordResult = await _userManager.AddPasswordAsync(user, resetPasswordViewModel.Password);
-						if (addPasswordResult.Succeeded) return RedirectToAction(nameof(AdminIndex));
+						if (addPasswordResult.Succeeded) return RedirectToAction("AdminIndex");
 				}
 			}
 		}

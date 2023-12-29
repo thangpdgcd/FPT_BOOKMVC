@@ -26,8 +26,6 @@
                 <td>@category.Description</td>
                 <td>@category.IsApproved</td>
                 <td>
-                    
-              
                     @if (!category.IsApproved && User.IsInRole(SD.AdminRole))
                     {
                         <form method="post" action="@Url.Action("Approve", new { id = category.CategoryId })">

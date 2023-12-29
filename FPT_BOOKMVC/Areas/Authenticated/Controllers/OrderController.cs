@@ -32,7 +32,8 @@ namespace FPT_BOOKMVC.Controllers
             var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();
             return View(order_customer_detail);
         }
-		[HttpGet]
+   
+        [HttpGet]
 		public async Task<IActionResult> Historyorder()
 		{
 			var order_customer_detail = await context.OrderDetails.Include(_ => _.Book).Include(_ => _.Order).ThenInclude(_ => _.User).ToListAsync();
@@ -124,7 +125,7 @@ namespace FPT_BOOKMVC.Controllers
             }
             await context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(OrderIndex));
+            return RedirectToAction("OrderIndex");
         }
     }
 }
